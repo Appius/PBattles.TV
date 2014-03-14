@@ -1,31 +1,29 @@
 PenisBattles.TV
 ===============
 
-Virtual Machine:
+**Virtual Machine:**
 PBattlesTV.cloudapp.net
 
-Logins and passes:
-
-Влад
-login: RA
+**Влад**<br />
+login: RA<br />
 pass: 3XW>$a')Mv)/c8s
 
-Назар:
-login: PGod
+**Назар**<br />
+login: PGod<br />
 pass: DkuQfQPn6rsrgayw
 
-Толя:
-login: PSon
+**Толя**<br />
+login: PSon<br />
 pass: S8QcJcxBUswHKNDj
 
-Миша:
-login: PDaddy
+**Миша**<br />
+login: PDaddy<br />
 pass: jF3aRtMYLkTYRQys
 
-Артем:
-login: Artem
+**Артем**<br />
+login: Artem<br />
 pass: FeDC3AbSJwUNGPKL
 
-Оля:
-login: Olya
+**Оля**<br />
+login: Olya<br />
 pass: zHa8LLMeHpGBgYFA
