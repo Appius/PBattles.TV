@@ -1,3 +1,9 @@
+#vim temp files
+*~
+*.swp
+*.swo
+#end vim temp
+
 *.class
 
 # Package Files #
