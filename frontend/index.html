@@ -1,7 +1,8 @@
 <html>
     <head>
         <title>Mastrubate.tv</title>
-        <script type="text/javascript" src="swfobject/swfobject.js">
+        <script type="text/javascript" src="swfobject/swfobject.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript">
 
             function onCreationComplete(event) {
@@ -16,13 +17,42 @@
             }
 
             swfobject.registerObject("my-stream", "11.0.0", "swfobject/expressInstall.swf");
+
+            $(document).ready(function(){
+                    $("input[name='start-stream']").click(function(){
+                        swfobject.getObjectById('my-stream').setProperty('src', document.getElementById('url1').value + '?publish=' + document.getElementById('publish1').value);
+                    });                
+
+            });
         </script>
     </head>
     <body>
         <input id="url1" type="hidden" value="rtmfp://p2p.rtmfp.net/91d6100deca5b227408d88d8-878173b8d137/"/>
+        <form name="test-names">
+            <input type="radio" value="peer1" />Michael
+            <input type="text" autocomplete="off" id="peer1-id" />
+            <br />
+            <input type="radio" value="peer2" />Nazar
+            <input type="text" autocomplete="off" id="peer2-id" />
+            <br />
+            <input type="radio" value="peer3" />Vlad
+            <input type="text" autocomplete="off" id="peer3-id" />
+            <br />
+            <input type="radio" value="peer4" />Olya
+            <input type="text" autocomplete="off" id="peer4-id" />
+            <br />
+            <input type="radio" value="peer5" />Tolia
+            <input type="text" autocomplete="off" id="peer5-id" />
+            <br />
+            <input name="start-stream" value="start my stream" type="button" />
+            <input name="reset-stream" value="reset my stream" type="button" />
+            <input name="view-stream" value="show other streams" type="button" />
+            <input name="reset-view-stream" value="reset other streams" type="button" />
+        </form>
         <table style="width: 640px;">
         <tr valign="top">
-        <td>
+        <td style="background-color: grey;">
+            <p>My stream</p>
 			<object id="my-stream" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="320" height="240">
 				<param name="movie" value="flash/VideoIO.swf" />
         		<!--[if !IE]>-->
@@ -53,25 +83,24 @@
         </center>
         </td>
         <td>
-            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-                    id="video2" width="320" height="240"
-                    codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
-                    <param name="movie" value="VideoIO.swf" />
-                    <param name="quality" value="high" />
-                    <param name="bgcolor" value="#000000" />
-                    <param name="allowFullScreen" value="true" />
-                    <param name="allowScriptAccess" value="always" />
-                    <param name="flashVars" value="controls=true" />
-                    <embed src="VideoIO11.swf" quality="high" bgcolor="#000000"
-                        width="320" height="240" name="video2" align="middle"
-                        play="true" loop="false" quality="high"
-                        allowFullScreen="true"
-                        allowScriptAccess="always"
-                        flashVars="controls=true"
-                        type="application/x-shockwave-flash"
-                        pluginspage="http://www.adobe.com/go/getflashplayer">
-                    </embed>
-            </object>
+			<object id="peer-stream" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="320" height="240">
+				<param name="movie" value="flash/VideoIO.swf" />
+        		<!--[if !IE]>-->
+				<object type="application/x-shockwave-flash" data="flash/VideoIO.swf" width="320" height="240">
+				<!--<![endif]-->
+                <param name="quality" value="high" />
+                <param name="bgcolor" value="#000000" />
+                <param name="allowFullScreen" value="false" />
+                <param name="allowScriptAccess" value="always" />
+                <param name="flashVars" value="controls=false" />
+				<div>
+					<h1>Alternative content</h1>
+					<p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
+				</div>
+				<!--[if !IE]>-->
+				</object>
+				<!--<![endif]-->
+			</object>
         <center>
         ?play=
         <input id="play2" type="text" autocomplete="off" style="width:50px;"
