@@ -5,14 +5,15 @@ package com.pbattles.entity;
  */
 public class UserInfo {
 
+
+    private String sessionId;
+
     public UserInfo() {
     }
 
     public UserInfo(String sessionId) {
         this.sessionId = sessionId;
     }
-
-    private String sessionId;
 
     public String getSessionId() {
         return sessionId;
