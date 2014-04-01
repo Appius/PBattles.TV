@@ -1,0 +1,2 @@
+({userId:1,sessionId:1,accountName:'Bob',roomUsers:[2]})
+({userId:2,sessionId:2,accountName:'Alice',roomUsers:[1]})
