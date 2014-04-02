@@ -21,6 +21,9 @@
         <property name="scheduler" ref="scheduler" />
     </bean>
 
+
     <task:scheduler id="scheduler" pool-size="10" />
 
+    <import resource="classpath:mainRunners.xml" />
+    <import resource="classpath:mongodb-config.xml" />
 </beans>

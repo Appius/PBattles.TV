@@ -1,8 +1,23 @@
 package com.pbattles.platformTest;
 
+import com.pbattles.dao.UserInfoDao;
 import com.pbattles.dao.UserInfoRepository;
+import com.pbattles.entity.UserInfoEntity;
+import com.pbattles.javaconfig.SpringMongoConfig;
+import javafx.application.Application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.loader.MainMethodRunner;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,17 +26,16 @@ import org.springframework.boot.loader.MainMethodRunner;
  * Time: 1:03
  * To change this template use File | Settings | File Templates.
  */
-public class DbTest {
 
-    @Autowired
-    private UserInfoRepository repository;
+
+public class DbTest  {
+
+
 
     public static void main(String[] args) {
-        MainMethodRunner runner = new MainMethodRunner("com.pbattles.platformTest.DbTest",args);
-        runner.run();       //exception is thrown, to finish later
+      ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");
+      UserInfoDao dao = (UserInfoDao)ctx.getBean("userInfoDao");
+      System.out.println(dao.findById(1));
     }
 
-    public void run(){
-
-    }
 }
