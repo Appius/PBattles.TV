@@ -1,6 +1,6 @@
 package com.pbattles.dao;
 
-import com.pbattles.entity.UserInfoEntity;
+import com.pbattles.entity.UserInfo;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * Time: 0:57
  * To change this template use File | Settings | File Templates.
  */
-public interface UserInfoRepository extends MongoRepository<UserInfoEntity,Long>{
+public interface UserInfoRepository extends MongoRepository<UserInfo,Long>{
 
-    public UserInfoEntity findByUserId(Long userId);
+    public UserInfo findByUserId(Long userId);
 }

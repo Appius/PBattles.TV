@@ -18,9 +18,9 @@ public class Main {
             @Override
             public void run() {
                 while (true) {
-                    String uniqueString = Double.toString(Math.random());
-                     System.out.println(uniqueString+" was added");
-                    container.addUser(new UserInfo(uniqueString));
+                    Long uniqueId = Double.doubleToLongBits(Math.random());
+                     System.out.println(uniqueId+" was added");
+                    container.addUser(new UserInfo(uniqueId,uniqueId,"",null));
                     try {
                         Thread.sleep(500L);
                     } catch (InterruptedException e) {

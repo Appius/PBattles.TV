@@ -1,23 +1,8 @@
 package com.pbattles.platformTest;
 
 import com.pbattles.dao.UserInfoDao;
-import com.pbattles.dao.UserInfoRepository;
-import com.pbattles.entity.UserInfoEntity;
-import com.pbattles.javaconfig.SpringMongoConfig;
-import javafx.application.Application;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.loader.MainMethodRunner;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
