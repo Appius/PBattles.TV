@@ -22,7 +22,7 @@ public class UserContainerTest {
 
     @Test
     public void addIsNotFailing() {
-        addUserInfoToContainer("");
+        addUserInfoToContainer(-5L);
     }
 
     @Test
@@ -32,7 +32,7 @@ public class UserContainerTest {
 
     @Test
     public void addIsNotFailingOnRepeatableAdd() {
-        addUserInfoToContainer("", "");
+        addUserInfoToContainer(-5L, -5L);
     }
 
     @Test
@@ -43,14 +43,14 @@ public class UserContainerTest {
 
     @Test
     public void getAllReturnOnOneElement(){
-        addUserInfoToContainer("SESSIONID");
+        addUserInfoToContainer(0L);
         List result = container.getAll();
         assertListSize(result, 1);
     }
 
     @Test
     public void getAllReturnOnLotsOfElements(){
-        addUserInfoToContainer("SESSIONID","SESSIONID2","SESSIONID3","SESSIONID4","SESSIONID5");
+        addUserInfoToContainer(0L,2L,3L,4L,5L);
         List result = container.getAll();
         assertListSize(result, 5);
     }
@@ -64,7 +64,7 @@ public class UserContainerTest {
 
     @Test
     public void getAllReturnOnLotsOfElementsAndNull(){
-        addUserInfoToContainer("SESSIONID","SESSIONID2","SESSIONID3","SESSIONID4","SESSIONID5");
+        addUserInfoToContainer(0L,2L,3L,4L,5L);
         container.addUser(null);
         List result = container.getAll();
         assertListSize(result, 5);
@@ -72,38 +72,38 @@ public class UserContainerTest {
 
     @Test
     public void removeUserOnNotExisting(){
-        removeUserInfoFomContainer("SESSIONID");
+        removeUserInfoFomContainer(0L);
         List result = container.getAll();
         assertListSize(result, 0);
     }
 
     @Test
     public void removeUserOnExistingElement(){
-        addUserInfoToContainer("SESSIONID");
-        removeUserInfoFomContainer("SESSIONID");
+        addUserInfoToContainer(0L);
+        removeUserInfoFomContainer(0L);
         List result = container.getAll();
         assertListSize(result, 0);
     }
 
     @Test
     public void removeUserOnExistingElements(){
-        addUserInfoToContainer("SESSIONID","SESSIONID2");
-        removeUserInfoFomContainer("SESSIONID");
+        addUserInfoToContainer(0L,2L);
+        removeUserInfoFomContainer(0L);
         List result = container.getAll();
         assertListSize(result, 1);
     }
 
     @Test
     public void removeUserOnNotExistingElements(){
-        addUserInfoToContainer("SESSIONID","SESSIONID2");
-        removeUserInfoFomContainer("SESSIONID3");
+        addUserInfoToContainer(0L,2L);
+        removeUserInfoFomContainer(3L);
         List result = container.getAll();
         assertListSize(result, 2);
     }
 
     @Test
     public void removeNullOnExistingElements(){
-        addUserInfoToContainer("SESSIONID","SESSIONID2");
+        addUserInfoToContainer(0L,2L);
         container.removeUser(null);
         List result = container.getAll();
         assertListSize(result, 2);
@@ -116,21 +116,21 @@ public class UserContainerTest {
         assertEquals(expectedSize, realSize);
     }
 
-    private void removeUserInfoFomContainer(String... sessionIds) {
-        for (String sessionId : sessionIds) {
+    private void removeUserInfoFomContainer(Long... sessionIds) {
+        for (Long sessionId : sessionIds) {
             UserInfo info = buildUserInfo(sessionId);
             container.removeUser(info);
         }
     }
 
-    private void addUserInfoToContainer(String... sessionIds) {
-        for (String sessionId : sessionIds) {
+    private void addUserInfoToContainer(Long... sessionIds) {
+        for (Long sessionId : sessionIds) {
             UserInfo info = buildUserInfo(sessionId);
             container.addUser(info);
         }
     }
 
-    private UserInfo buildUserInfo(String sessionId) {
+    private UserInfo buildUserInfo(Long sessionId) {
         UserInfo info = new UserInfo();
         info.setSessionId(sessionId);
         return info;
