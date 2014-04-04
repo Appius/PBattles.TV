@@ -1,7 +1,7 @@
-<web-app version="2.4"
+<web-app version="3.0"
          xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
-	http://java.sun.com/xml/ns/j2ee/web-app_2_5.xsd">
+	http://java.sun.com/xml/ns/j2ee/web-app_3.0.xsd">
 
     <display-name>PBattles web application</display-name>
 
@@ -9,6 +9,8 @@
         <servlet-name>mvc-dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
+
+        <async-supported>true</async-supported>
     </servlet>
 
     <servlet-mapping>

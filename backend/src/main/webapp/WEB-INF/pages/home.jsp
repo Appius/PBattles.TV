@@ -11,7 +11,7 @@
     <title></title>
 </head>
 <body>
-<form method="post" action="/register" >
+<form method="post" action="/home" >
     <input type="submit" value="Find chat partners" />
 </form>
 </body>
