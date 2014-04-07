@@ -1,4 +1,4 @@
-package com.pbattles.dao;
+package com.pbattles.db.dao;
 
 import com.pbattles.entity.UserInfo;
 import org.springframework.data.mongodb.repository.MongoRepository;

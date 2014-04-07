@@ -1,6 +1,6 @@
 package com.pbattles.platformTest;
 
-import com.pbattles.dao.UserInfoDao;
+import com.pbattles.db.dao.UserInfoDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

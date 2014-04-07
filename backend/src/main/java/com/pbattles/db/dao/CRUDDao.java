@@ -1,4 +1,4 @@
-package com.pbattles.dao;
+package com.pbattles.db.dao;
 
 import java.util.List;
 
