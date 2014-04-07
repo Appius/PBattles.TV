@@ -7,6 +7,7 @@
 
     <bean id="basicContainer" class="com.pbattles.usercollection.UserContainer"/>
     <bean id="consoleResponceHandler" class="com.pbattles.response.ConsoleResponseHandler"/>
+    <bean id="webViewReponseHandler" class="com.pbattles.response.WebViewResponceHandler" />
     <bean id="duplicateValidator" class="com.pbattles.strategy.DuplicateValidator"/>
     <bean id="naiveShuffleStrategy" class="com.pbattles.strategy.NaiveStrategy">
         <property name="minimumUsersInRoom" value="2" />
@@ -15,7 +16,7 @@
 
     <bean id="basicShuffler" class="com.pbattles.shuffler.UserShuffler" init-method="init">
         <property name="container" ref="basicContainer"/>
-        <property name="responseHandler" ref="consoleResponceHandler"/>
+        <property name="responseHandler" ref="webViewReponseHandler"/>
         <property name="roomValidator" ref="duplicateValidator"/>
         <property name="shuffleStrategy" ref="naiveShuffleStrategy"/>
         <property name="scheduler" ref="scheduler" />

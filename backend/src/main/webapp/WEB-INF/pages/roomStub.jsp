@@ -11,6 +11,7 @@
     <title></title>
 </head>
 <body>
-        room stub
+        room stub: your id: ${userId}
+${roomMembers}
 </body>
 </html>

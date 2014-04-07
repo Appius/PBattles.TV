@@ -10,4 +10,9 @@ public class ConsoleResponseHandler implements ResponseHandler{
     public void handleIncomingRoom(Room room) {
         System.out.println("Handled : "+room);
     }
+
+    @Override
+    public Room delivedRoomByUserId(Long id) {
+        return null;
+    }
 }
