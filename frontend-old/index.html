@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>Mastrubate.tv</title>
+        <script type="text/javascript" src="swfobject/swfobject.js">
+        <script type="text/javascript">
+
+            function onCreationComplete(event) {
+            }
+
+            function onPropertyChange(event) {
+                if (event.property == "nearID") {
+                    if (event.objectID == "video1") {
+                        document.getElementById("nearID1").value = event.newValue;
+                    }
+                }
+            }
+
+            swfobject.registerObject("my-stream", "11.0.0", "swfobject/expressInstall.swf");
+        </script>
+    </head>
+    <body>
+        <input id="url1" type="hidden" value="rtmfp://p2p.rtmfp.net/91d6100deca5b227408d88d8-878173b8d137/"/>
+        <table style="width: 640px;">
+        <tr valign="top">
+        <td>
+			<object id="my-stream" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="320" height="240">
+				<param name="movie" value="flash/VideoIO.swf" />
+        		<!--[if !IE]>-->
+				<object type="application/x-shockwave-flash" data="flash/VideoIO.swf" width="320" height="240">
+				<!--<![endif]-->
+                <param name="quality" value="high" />
+                <param name="bgcolor" value="#000000" />
+                <param name="allowFullScreen" value="false" />
+                <param name="allowScriptAccess" value="always" />
+                <param name="flashVars" value="controls=false" />
+				<div>
+					<h1>Alternative content</h1>
+					<p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
+				</div>
+				<!--[if !IE]>-->
+				</object>
+				<!--<![endif]-->
+			</object>
+        <center>
+        ?publish=
+        <input id="publish1" type="text" autocomplete="off" style="width:50px;"
+            value="user1"/>
+        <br/>
+        nearID=<input id="nearID1" type=Text" autocomplete="off" style="width:250px;"/>
+        <br/>
+        <input value="set" type="button" onclick="swfobject.getObjectById('my-stream').setProperty('src', document.getElementById('url1').value + '?publish=' + document.getElementById('publish1').value)"/>
+        <input value="reset" type="button" onclick="swfobject.getObjectById('my-stream').setProperty('src', null)"/>
+        </center>
+        </td>
+        <td>
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+                    id="video2" width="320" height="240"
+                    codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
+                    <param name="movie" value="VideoIO.swf" />
+                    <param name="quality" value="high" />
+                    <param name="bgcolor" value="#000000" />
+                    <param name="allowFullScreen" value="true" />
+                    <param name="allowScriptAccess" value="always" />
+                    <param name="flashVars" value="controls=true" />
+                    <embed src="VideoIO11.swf" quality="high" bgcolor="#000000"
+                        width="320" height="240" name="video2" align="middle"
+                        play="true" loop="false" quality="high"
+                        allowFullScreen="true"
+                        allowScriptAccess="always"
+                        flashVars="controls=true"
+                        type="application/x-shockwave-flash"
+                        pluginspage="http://www.adobe.com/go/getflashplayer">
+                    </embed>
+            </object>
+        <center>
+        ?play=
+        <input id="play2" type="text" autocomplete="off" style="width:50px;"
+            value="user2"/>
+        &amp;
+        <br/>
+        farID=
+        <input id="farID2" type="text" autocomplete="off" style="width:250px;"/>
+        <br/>
+        <input value="set" type="button" onclick="getFlashMovie('video2').setProperty('src', document.getElementById('url1').value + '?play=' + document.getElementById('play2').value + '&amp;farID=' + document.getElementById('farID2').value)"/>
+        <input value="reset" type="button" onclick="getFlashMovie('video2').setProperty('src', null)"/>
+        </center>
+
+        </td></tr></table>
+    </body>
+</html>
