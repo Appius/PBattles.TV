@@ -43,3 +43,6 @@ backend/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_7_
 backend/.idea/libraries/Maven__org_springframework_data_spring_data_mongodb_1_4_1_RELEASE.xml
 backend/.idea/libraries/Maven__org_springframework_spring_tx_3_2_8_RELEASE.xml
 backend/.idea/uiDesigner.xml
+
+# Frontend #
+frontend/.idea/*
