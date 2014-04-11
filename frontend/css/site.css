@@ -114,3 +114,9 @@ footer {
         text-align: right;
     }
 }
+
+section.intro a{
+    margin: 0 20px;
+    width: 240px;
+    font-weight: bold;
+}
