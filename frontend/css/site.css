@@ -52,6 +52,14 @@ footer {
 
 @media (min-width: 768px) {
     .omb_row-sm-offset-3 div:first-child[class*="col-"] { margin-left: 25%; }
+
+    .omb_login .omb_forgotPwd {
+        margin-top: 10px;
+        text-align: right;
+    }
+}
+
+@media (min-width: 768px) {
 }
 
 .omb_login .omb_authTitle {
@@ -107,16 +115,3 @@ footer {
 .omb_login .omb_loginForm .input-group.i { width: 2em; }
 
 .omb_login .omb_loginForm .help-block { color: red; }
-
-@media (min-width: 768px) {
-    .omb_login .omb_forgotPwd {
-        margin-top: 10px;
-        text-align: right;
-    }
-}
-
-section.intro a{
-    margin: 0 20px;
-    width: 240px;
-    font-weight: bold;
-}
