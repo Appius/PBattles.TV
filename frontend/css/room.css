@@ -49,7 +49,7 @@ header, header .navbar-inverse .brand, .navbar-inverse .nav > li > a {
 .navbar-nav > li > a.btn {
     display: inline-block;
     padding: 6px 12px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     font-size: 14px;
     font-weight: normal;
     line-height: 1.42857;
@@ -86,8 +86,8 @@ ul.nav li {
 
 div.tooltip-inner {
     text-align: center;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
     margin-bottom: 6px;
     background-color: #505050;
     font-size: 14px;
@@ -104,4 +104,30 @@ footer {
     padding: 5px 10px;
     position: relative;
     font-weight: bold;
+}
+
+.webcam-section {
+    width: 100%;
+    position: fixed;
+    top: 40%;
+    left: 25%;
+    margin-top: -250px;
+    margin-left: -250px;
+    float:left;
+}
+
+.webcam-section-me {
+    width: 100%;
+    position: fixed;
+    bottom: 5%;
+    left: 10%;
+    margin-top: -150px;
+    margin-left: -150px;
+    float:left;
+}
+
+.person-name {
+    margin: 10px;
+    vertical-align: bottom;
+    display: inline-table;
 }

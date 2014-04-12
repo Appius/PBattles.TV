@@ -18,7 +18,7 @@
 
 <body>
 <div id="wrap">
-    <header class="navbar navbar-inverse navbar-inner" role="navigation">
+    <header class="navbar navbar-inverse navbar-inner">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">
@@ -28,7 +28,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="btn btn-default btn-lg tooltip-link" href="#">
+                        <a class="btn btn-default btn-lg tooltip-link" href="#"
+                           data-toggle="tooltip" data-placement="bottom" title="Copied!">
                             <i class="fa fa-1x fa-clipboard"></i><br />Copy token key</a>
                     </li>
                     <li>
@@ -56,14 +57,30 @@
         </div>
     </header>
 
-        <div class="col-md-6">.col-md-6</div>
+        <div class="col-md-6">
+            <div class="webcam-section">
+                <img src="imgs/Originals/smile.jpg" alt="webcam" width="520" class="img-thumbnail"/>
+                <br />
+                <p class="person-name" style="color:blue;">
+                    <i class="fa fa-video-camera"></i> Anonymous12345
+                </p>
+            </div>
+
+            <div class="webcam-section-me">
+                <img src="imgs/Originals/smile.jpg" alt="webcam" width="300" class="img-thumbnail"/>
+                <p class="person-name" style="color:darkred;">
+                    <i class="fa fa-video-camera"></i> Anonymous32145 <span style="color:dimgray;">(you)</span>
+                </p>
+            </div>
+        </div>
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <i class="fa fa-comments-o"></i> Chat
+                    <!--Minimaze button-->
                     <!--<div class="btn-group pull-right">
                         <div type="button" class="btn btn-xs dropdown-toggle">
-                            <i class="fa fa-minus-square fa-2x"></i>
+                            <i class="fa fa-minus-square"></i>
                         </div>
                     </div>-->
                 </div>
@@ -253,22 +270,6 @@
                             <button type="button" class="btn btn-success btn-sm" tabindex="-1">Send</button>
                         </div>
                     </div>
-
-                    <!--<div class="input-group">
-                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
-
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-                            <span class="caret"></span>
-                            <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-
-
-
-                        <span class="input-group-btn">
-                            <button class="btn btn-success btn-sm" id="btn-chat">
-                                Send</button>
-                        </span>
-                    </div>-->
                 </div>
             </div>
         </div>
@@ -288,6 +289,19 @@
 
         /*Popover for smile button*/
         $('[data-toggle="popover"]').popover();
+        $('[data-toggle="tooltip"]').tooltip({
+            trigger: 'click'
+        }).on("click", function() {
+            setTimeout(function(){
+                $('[data-toggle="tooltip"]').tooltip('hide');
+            },500);
+        });
+
+        /*setTimeout(function(){
+
+            //your code to be executed after 1 seconds
+        },delay);*/
+
     });
 </script>
 </body>
