@@ -1,6 +1,9 @@
 PenisBattles.TV
 ===============
 
+**Warning!** Current repository will be moved to private GIT server which is situated [here](http://pbattletv.cloudapp.net/viewgit/) (temporarily) soon.
+
+
 ###Virtual machine:
 * Service: **Windows Azure**
 * Public IP: **23.97.147.236**
