@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Masturbate TV">
+
+        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <title>Penis Battles TV</title>
+        <script src="js/adapter.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src='/socket.io/socket.io.js'></script>
+    </head>
+
+    <body> 
+        <h3>Video capture</h3>
+
+
+        <div id="chat">
+        </div>
+        <input type="text" id="text-field" />
+        <input type="button" name="send" value="!send"/>
+        <script>
+
+            var socket = io.connect();
+            var room = prompt("Enter room name:");
+            socket.emit('join', room);
+
+            socket.on('message', function (message){
+                $('#chat').append('<p>'+message+'</p>');
+            });
+
+            $('input[name="send"]').click(function(){
+                var message = $('#text-field').val();
+                $('#text-field').val('');
+                socket.emit('message', message);
+            });
+        </script>
+
+    </body>
+</html>
