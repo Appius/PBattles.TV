@@ -28,12 +28,21 @@
 
             socket.on('message', function (message){
                 $('#chat').append('<p>'+message+'</p>');
+                $("html, body").animate({scrollTop: $(document).height()}, 500);
             });
 
             $('input[name="send"]').click(function(){
                 var message = $('#text-field').val();
                 $('#text-field').val('');
                 socket.emit('message', message);
+            });
+
+            $('#text-field').keyup(function(e){
+                if(e.keyCode == 13){
+                    var message = $('#text-field').val();
+                    $('#text-field').val('');
+                    socket.emit('message', message);
+                }
             });
         </script>
 
