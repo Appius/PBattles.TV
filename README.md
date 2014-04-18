@@ -6,7 +6,7 @@ PenisBattles.TV
 * Public IP: **23.97.147.236**
 * Inernal IP: **100.91.104.138**
 * DNS name: **pbattletv.cloudapp.net**
-* Size: **A2 (2 cores, 3.5 GB memory)**
+* Size: **Basic_A1 (1 core, 1.75 GB memory)**
 * Location: **West Europe**
 * Endpoints:
   * HTTP: **[pbattletv.cloudapp.net:80](http://pbattletv.cloudapp.net:80)** (in :80, out: 80)
