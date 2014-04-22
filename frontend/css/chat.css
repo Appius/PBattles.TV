@@ -1,10 +1,53 @@
+#chat_section {
+    position: relative;
+}
+
 .chat
 {
     list-style: none;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
+.panel-border
+{
+    margin: 70px 10px 0 10px;
+
+    width: 48%;
+    position: fixed;
+    background-color: transparent;
+}
+
+.chat {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.panel-body
+{
+    margin: 35px 0 0 10px;
+    position: relative;
+    z-index: -1;
+}
+
+.panel-heading {
+    background-color: #F5F5F5;
+    margin: 70px 10px 0 10px;
+}
+
+.panel-footer {
+    margin: 0 10px;
+}
+
+.panel-heading, .panel-footer {
+    z-index:5;
+    position: fixed;
+    width:48%;
+    border: 1px solid #DDD;
+}
+
+/*--------------------------------------------------------------------------SHIT*/
 .chat li
 {
     margin-bottom: 10px;
@@ -28,24 +71,11 @@
     color: #777777;
 }
 
-.panel {
-    margin: 0 10px;
-}
-
 .panel .slidedown .glyphicon, .chat .glyphicon
 {
     margin-right: 5px;
 }
 
-.panel-body
-{
-    overflow-y: scroll;
-    height: 500px;
-}
-
-.panel-heading {
-    padding-right: 0px;
-}
 ::-webkit-scrollbar-track
 {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
