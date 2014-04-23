@@ -21,7 +21,7 @@ public class UserShuffler {
     private ResponseHandler responseHandler;
     private ThreadPoolTaskScheduler scheduler;
     private RoomValidator roomValidator;
-    private long POLL_TIME_DELAY = 1000L;
+    private static final long POLL_TIME_DELAY = 1000L;
 
     public void init(){
         scheduler.scheduleWithFixedDelay(new ScheduleShuffleTask(),POLL_TIME_DELAY);
