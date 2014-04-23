@@ -29,7 +29,7 @@ public class HomePageController {
      */
     @RequestMapping(value="/home", method = RequestMethod.GET)
     public String redirectToHome(){
-        return "home";
+        return "index";
     }
 
     @Autowired
@@ -39,8 +39,10 @@ public class HomePageController {
     @Autowired
     private ResponseHandler responseHandler;
 
-
-    @RequestMapping(value = "findPartners", method = RequestMethod.POST)
+/*
+ * TODO: RETURN METHOD TO POST ONLY, GET SUPPORT TURNED ON ONLY FOR DEMO PURPOSES
+ */
+    @RequestMapping(value = "findPartners"/*, method = RequestMethod.POST*/)
     public String registerAndMoveToTheWaitingRoom(Model model) throws InterruptedException {
         Long randomId = new Random().nextLong();
         model.addAttribute("userId", randomId);
@@ -52,7 +54,7 @@ public class HomePageController {
             System.out.println("Still waiting...");
         }
         model.addAttribute("roomMembers",chosenRoom.getCurrentUsers());
-        return "roomStub";
+        return "room";
     }
 
     private void addUserInfoToContainer(Long randomId) {
