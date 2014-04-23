@@ -75,6 +75,12 @@
             <version>3.0.1</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.corundumstudio.socketio</groupId>
+            <artifactId>netty-socketio</artifactId>
+            <version>1.6.3</version>
+        </dependency>
     </dependencies>
 
     <build>
