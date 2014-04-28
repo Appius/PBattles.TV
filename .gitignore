@@ -45,4 +45,12 @@ backend/.idea/libraries/Maven__org_springframework_spring_tx_3_2_8_RELEASE.xml
 backend/.idea/uiDesigner.xml
 
 # Frontend #
-frontend/.idea/*
+frontend/.idea
+frontend/logs/*
+frontend/!.gitkeep
+frontend/node_modules/
+frontend/bower_components/
+frontend/tmp
+frontend/.DS_Store
+
+
