@@ -129,7 +129,7 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #fff;
-    background: #000 url(../imgs/fhd008MSN_Travis_Van_Winkle_002.jpg) no-repeat scroll bottom center;
+    background: #000 url(../img/fhd008MSN_Travis_Van_Winkle_002.jpg) no-repeat scroll bottom center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -308,11 +308,11 @@ footer {
 }
 
 .about-section {
-    background: #000 url(../imgs/about-section.jpg) no-repeat scroll center center;
+    background: #000 url(../img/about-section.jpg) no-repeat scroll center center;
 }
 
 .help-section {
-    background: #000 url(../imgs/help-section.jpg) no-repeat scroll center center;
+    background: #000 url(../img/help-section.jpg) no-repeat scroll center center;
 }
 
 @media(min-width:767px) {
