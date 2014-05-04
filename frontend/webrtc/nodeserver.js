@@ -16,8 +16,8 @@ io.sockets.on('connection', function (socket){
 	socket.on('join', function (room) {
 		var num_clients = io.sockets.clients(room).length;
 		socket.join(room);
-        socket.room = room;
-        socket.emit('message', 'you have joined the room '+ room + '. it has ' + num_clients + ' users online');
+        	socket.room = room;
+        	socket.emit('message', 'you have joined the room '+ room + '. it has ' + num_clients + ' users online');
 	});
 
 });

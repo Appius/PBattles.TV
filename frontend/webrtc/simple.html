@@ -39,6 +39,7 @@
             }
 
             function gotLocalDescription(desc){
+                console.log(desc);
                 localPeer.setLocalDescription(desc);
                 remotePeer.setRemoteDescription(desc);
                 remotePeer.createAnswer(gotRemoteDescription, error);

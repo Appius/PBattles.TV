@@ -149,6 +149,7 @@ section.intro a{
 
 .brand-heading {
     font-size: 40px;
+    text-shadow: 0 0 9px rgba(200, 150, 50, 1);
 }
 
 .intro-text {
