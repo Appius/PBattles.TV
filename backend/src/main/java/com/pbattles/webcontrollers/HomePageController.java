@@ -1,4 +1,4 @@
-package com.pbattles.controllers;
+package com.pbattles.webcontrollers;
 
 
 import com.pbattles.entity.Room;
@@ -11,8 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.request.async.DeferredResult;
 
 import java.util.Random;
 
@@ -51,7 +49,7 @@ public class HomePageController {
         while(chosenRoom == null){
             Thread.sleep(1000L);
             chosenRoom = responseHandler.delivedRoomByUserId(randomId);
-            System.out.println("Still waiting...");
+            System.out.println("Still waiting.... ");
         }
         model.addAttribute("roomMembers",chosenRoom.getCurrentUsers());
         return "room";
