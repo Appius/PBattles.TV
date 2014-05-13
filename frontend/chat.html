@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Masturbate TV">
+
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <title>Penis Battles TV</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/chat.css" rel="stylesheet" />
+    <script src="js/modernizr.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.6/socket.io.min.js"></script>
+</head>
+
+    <body data-target=".navbar-custom">
+
+        <!-- HEADER BLOCK -->
+        <div class="navbar navbar-custom navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="#page-top">
+                        <i class="fa fa-users"></i> <span class="light">Penis</span> Battles.TV
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#about">About</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#contact">Contact</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#help">Help</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--END HEADER BLOCK -->
+
+        <div class="container page-container">
+            <div class="row" style=""></div>
+            <div class="row">
+                <div class="col-md-7 col-sm-6 col-xs-12">
+                    <div class="videos">
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Group chat</div>
+                        <div class="panel-body">
+                            <ul id="chat">
+                                <li class="clearfix">
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <strong class="primary-font">Nicola</strong>
+                                        </div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                            dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <strong class="primary-font">You</strong>
+                                        </div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                            dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <strong class="primary-font">Nicola</strong>
+                                        </div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                            dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <strong class="primary-font">Nicola</strong>
+                                        </div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                            dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="input-group">
+                                <form>
+                                    <input id="text-field" type="text" class="form-control" placeholder="Enter message..."/>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" name="send">Send</button>
+                                    </span>
+                                </form>
+                                <script>
+
+                                    var socket = io.connect('http://127.0.0.1:2013');
+                                    var room = prompt("Enter room name:");
+                                    socket.emit('join', room);
+
+
+                                    socket.on('message', function (message){
+                                        var message_template = '<li class="clearfix"><div class="chat-body clearfix"><div class="header">'+
+                                            '<strong class="primary-font">'+'Name'+'</strong></div><p>'+message+'</p></div></li>';
+                                        
+                                        $('#chat').append(message_template);
+                                        $("html, body").animate({scrollTop: $('#chat').height()}, 500);
+                                    });
+
+                                    $('button[name="send"]').on("click", function(e){
+                                        e.preventDefault();
+                                        var message = $('#text-field').val();
+                                        if(message.length != 0){
+                                            $('#text-field').val('');
+                                            socket.emit('message', message);
+                                        }
+                                    });
+
+                                    $('#text-field').keyup(function(e){
+                                        e.preventDefault();
+                                        if(e.keyCode == 13){
+                                            var message = $('#text-field').val();
+                                            if(message.length != 0){
+                                                $('#text-field').val('');
+                                                socket.emit('message', message);
+                                            }
+                                        }
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row"></div>
+        </div>
+
+    </body>
+</html>
