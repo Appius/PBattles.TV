@@ -51,9 +51,9 @@ public class SignalSocketIOServer {
     }
 
     private void addMessageEventListener(final SocketIOServer server) {
-        server.addEventListener("message", String.class, new DataListener<String>() {
+        server.addEventListener("message", Object.class, new DataListener<Object>() {
             @Override
-            public void onData(SocketIOClient client, String data, AckRequest ackRequest) {
+            public void onData(SocketIOClient client, Object data, AckRequest ackRequest) {
                 String room = getCurrentRoom(client);
                 server.getRoomOperations(room).sendEvent("message", data);
             }
