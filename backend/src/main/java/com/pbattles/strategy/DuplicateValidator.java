@@ -10,11 +10,14 @@ import java.util.Set;
 /**
  * Created by Nazar_Sheremeta on 3/25/14.
  */
+@Deprecated
 public class DuplicateValidator implements RoomValidator{
     @Override
     public boolean validate(Room room) {
-        List<UserInfo> roomUsers = room.getCurrentUsers();
+        // KILL THIS CLASS, ROOM LOGIC CHANGED
+        /*List<UserInfo> roomUsers = room.getCurrentUsers();
         Set<UserInfo> uniqueRoomUsers = Sets.newHashSet(roomUsers);
-        return roomUsers.size() == uniqueRoomUsers.size();
+        return roomUsers.size() == uniqueRoomUsers.size();*/
+        return true;
     }
 }

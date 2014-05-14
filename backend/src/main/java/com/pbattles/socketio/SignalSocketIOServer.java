@@ -34,7 +34,7 @@ public class SignalSocketIOServer {
 
     private Configuration createConfiguration() {
         Configuration config = new Configuration();
-        config.setHostname("localhost");
+        config.setHostname("epuakyiw0447");
         config.setPort(9092);
         return config;
     }
@@ -45,6 +45,7 @@ public class SignalSocketIOServer {
             @Override
             public void onData(SocketIOClient client, String data, AckRequest ackSender) {
                 client.joinRoom(data);
+                System.out.println("User has connected");
             }
         });
     }
