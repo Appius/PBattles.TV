@@ -13,29 +13,24 @@ import java.util.List;
  */
 public class SignalSocketIOServer {
 
+    private SocketIOServer server;
 
     public void init() throws InterruptedException {
         Configuration config = createConfiguration();
-        final SocketIOServer server = new SocketIOServer(config);
-        addJoinRoomEventListener(server);
-
-        new Thread(new Runnable(){
-
-            @Override
-            public void run() {
-                server.start();
-
-                try {
-                    Thread.sleep(Integer.MAX_VALUE);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                server.stop();
-            }
-        }).start(); //REFACTOR THIS FOR THREAD EXECUTOR
-
+        server = new SocketIOServer(config);
+        addEventListeners();
+        server.start();
     }
+
+    public void close(){
+        server.stop();
+    }
+
+    private void addEventListeners() {
+        addJoinRoomEventListener(server);
+        addMessageEventListener(server);
+    }
+
 
     private Configuration createConfiguration() {
         Configuration config = new Configuration();
@@ -45,8 +40,8 @@ public class SignalSocketIOServer {
     }
 
 
-    private  void addJoinRoomEventListener(SocketIOServer server) {
-        server.addEventListener("join",String.class,new DataListener<String>() {
+    private void addJoinRoomEventListener(SocketIOServer server) {
+        server.addEventListener("join",String.class, new DataListener<String>() {
             @Override
             public void onData(SocketIOClient client, String data, AckRequest ackSender) {
                 client.joinRoom(data);
@@ -54,20 +49,19 @@ public class SignalSocketIOServer {
         });
     }
 
-    private void addMessageEventListener(final SocketIOServer server){
+    private void addMessageEventListener(final SocketIOServer server) {
         server.addEventListener("message", String.class, new DataListener<String>() {
             @Override
             public void onData(SocketIOClient client, String data, AckRequest ackRequest) {
                 String room = getCurrentRoom(client);
-                //server.getRoomOperations(room).sendEvent("message", data);
-                server.getBroadcastOperations().sendEvent("message", data); // TO INVESTIGATE LATER, 5-30 PM
+                server.getRoomOperations(room).sendEvent("message", data);
             }
         });
     }
 
     private String getCurrentRoom(SocketIOClient client) {
         List<String> rooms = client.getAllRooms();
-        if(rooms == null) return null;
+        if (rooms == null) return null;
         return getLastElement(rooms);
     }
 

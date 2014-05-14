@@ -22,7 +22,7 @@
         <property name="scheduler" ref="scheduler" />
     </bean>
 
-<bean id="signalServer" class="com.pbattles.socketio.SignalSocketIOServer" lazy-init="false" scope="singleton" init-method="init" />
+<bean id="signalServer" class="com.pbattles.socketio.SignalSocketIOServer" lazy-init="false" scope="singleton" init-method="init" destroy-method="close"/>
 
     <task:scheduler id="scheduler" pool-size="10" />
 
