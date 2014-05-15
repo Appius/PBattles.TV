@@ -39,7 +39,8 @@ public class NaiveStrategy implements ShuffleStrategy {
         for (int i = 0; i < minimumUsersInRoom; i++) {
             roomUsers.add(userPool.remove(FIRST_ELEMENT));
         }
-        return new Room(roomUsers,roomCapacity);
+       // return new Room(roomUsers,roomCapacity);
+        return null;
     }
 
     public void setMinimumUsersInRoom(int minimumUsersInRoom) {

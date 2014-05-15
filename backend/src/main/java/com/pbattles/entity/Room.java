@@ -7,23 +7,23 @@ import java.util.List;
  */
 public class Room {
 
-    private List<UserInfo> currentUsers;
+    private String name;
     private int capacity;
 
     public Room() {
     }
 
-    public Room(List<UserInfo> currentUsers, int capacity) {
-        this.currentUsers = currentUsers;
+    public Room(String name, int capacity) {
+        this.name = name;
         this.capacity = capacity;
     }
 
-    public List<UserInfo> getCurrentUsers() {
-        return currentUsers;
+    public String getName() {
+        return name;
     }
 
-    public void setCurrentUsers(List<UserInfo> currentUsers) {
-        this.currentUsers = currentUsers;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getCapacity() {
@@ -42,23 +42,15 @@ public class Room {
         Room room = (Room) o;
 
         if (capacity != room.capacity) return false;
-        if (!currentUsers.equals(room.currentUsers)) return false;
+        if (!name.equals(room.name)) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = currentUsers.hashCode();
+        int result = name.hashCode();
         result = 31 * result + capacity;
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Room{" +
-                "currentUsers=" + currentUsers +
-                ", capacity=" + capacity +
-                '}';
     }
 }

@@ -7,11 +7,11 @@
 
     <bean id="basicContainer" class="com.pbattles.usercollection.UserContainer"/>
     <bean id="consoleResponceHandler" class="com.pbattles.response.ConsoleResponseHandler"/>
-    <bean id="webViewReponseHandler" class="com.pbattles.response.WebViewResponceHandler" />
+    <bean id="webViewReponseHandler" class="com.pbattles.response.WebViewResponceHandler"/>
     <bean id="duplicateValidator" class="com.pbattles.strategy.DuplicateValidator"/>
     <bean id="naiveShuffleStrategy" class="com.pbattles.strategy.NaiveStrategy">
-        <property name="minimumUsersInRoom" value="2" />
-        <property name="roomCapacity" value="6" />
+        <property name="minimumUsersInRoom" value="2"/>
+        <property name="roomCapacity" value="6"/>
     </bean>
 
     <bean id="basicShuffler" class="com.pbattles.shuffler.UserShuffler" init-method="init">
@@ -19,12 +19,23 @@
         <property name="responseHandler" ref="webViewReponseHandler"/>
         <property name="roomValidator" ref="duplicateValidator"/>
         <property name="shuffleStrategy" ref="naiveShuffleStrategy"/>
+        <property name="scheduler" ref="scheduler"/>
+    </bean>
+
+    <bean id="signalServer" class="com.pbattles.socketio.SignalSocketIOServer" lazy-init="false" scope="singleton"
+          init-method="init" destroy-method="close"/>
+
+    <bean id="roomContainer" class="com.pbattles.roomlogic.QueueBasedContainer" init-method="initSchedule">
+        <property name="usersInRoom" value="5"/>
         <property name="scheduler" ref="scheduler" />
     </bean>
 
+    <bean id="roomService" class="com.pbattles.roomlogic.RandomRoomServiceImpl">
+        <property name="roomContainer" ref="roomContainer"/>
+    </bean>
 
-    <task:scheduler id="scheduler" pool-size="10" />
+    <task:scheduler id="scheduler" pool-size="10"/>
 
-    <import resource="classpath:mainRunners.xml" />
-    <import resource="classpath:mongodb-config.xml" />
+    <import resource="classpath:mainRunners.xml"/>
+    <import resource="classpath:mongodb-config.xml"/>
 </beans>

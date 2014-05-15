@@ -59,7 +59,7 @@
                 <div class="row">
                     <h1 class="brand-heading">Kitty Battles TV</h1>
                     <p class="intro-text">A free, premium quality, staggering battles of your kitties online via video chat.</p>
-                    <a href="findPartners" class="btn btn-default btn-lg">Enter anonymously</a>
+                    <a href="room" class="btn btn-default btn-lg">Enter anonymously</a>
                     <a href="#login" class="btn btn-default btn-lg page-scroll">Login</a>
                 </div>
             </div>
