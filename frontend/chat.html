@@ -14,6 +14,7 @@
     <script src="js/modernizr.min.js"></script>
     <script src="js/jquery.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.6/socket.io.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
         <style>
             .videoContainer {
                 position: relative;
@@ -37,6 +38,16 @@
 </head>
 
     <body data-target=".navbar-custom">
+
+        <div id="setmodal" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true" aria-labelledby="setLabel">
+            <div class="modal-dialog modal-dialog-center">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        Please, provide an access to your camera and mic, overwise PenisBattles wont work !!!!
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- HEADER BLOCK -->
         <div class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -74,16 +85,12 @@
             <div class="row" style=""></div>
             <div class="row">
                 <div class="col-md-7 col-sm-6 col-xs-12">
-                    <form id="createRoom">
-                        <input id="sessionInput"/>
-                        <button type="submit">Create it!</button>
-                    </form>
                     <div class="videos">
                         <div class="videoContainer">
                             <video id="localVideo" style="height: 150px;" oncontextmenu="return false;"></video>
                             <div id="localVolume" class="volume_bar"></div>
                         </div>
-                        <div id="remotes"></div>
+                        <div id="remoteVideos"></div>
                     </div>
                 </div>
                 <div class="col-md-5 col-sm-6">
@@ -146,7 +153,7 @@
                                 <script>
 
                                     var socket = io.connect('http://127.0.0.1:2013');
-                                    var room = prompt("Enter room name:");
+                                    var room = 'delete';
                                     socket.emit('join', room);
 
 
@@ -189,14 +196,16 @@
         <script src="js/simplewebrtc.bundle.js"></script>
         <script>
             // grab the room from the URL
-            var room = location.search && location.search.split('?')[1];
+            var room = 'delete';
+
+            $('#setmodal').modal('show');
 
             // create our webrtc connection
             var webrtc = new SimpleWebRTC({
                 // the id/element dom element that will hold "our" video
                 localVideoEl: 'localVideo',
                 // the id/element dom element that will hold remote videos
-                remoteVideosEl: '',
+                remoteVideosEl: 'remoteVideos',
                 // immediately ask for camera access
                 autoRequestMedia: true,
                 debug: false,
@@ -204,10 +213,9 @@
                 autoAdjustMic: false
             });
 
-            // when it's ready, join if we got a room from the URL
             webrtc.on('readyToCall', function () {
-                // you can name it anything
                 if (room) webrtc.joinRoom(room);
+                $('#setmodal').modal('hide');
             });
 
             function showVolume(el, volume) {
@@ -255,60 +263,6 @@
             webrtc.on('volumeChange', function (volume, treshold) {
                 //console.log('own volume', volume);
                 showVolume(document.getElementById('localVolume'), volume);
-            });
-
-            // Since we use this twice we put it here
-            function setRoom(name) {
-                $('form').remove();
-                $('h1').text(name);
-                $('#subTitle').text('Link to join: ' + location.href);
-                $('body').addClass('active');
-            }
-
-            if (room) {
-                setRoom(room);
-            } else {
-                $('form').submit(function () {
-                    var val = $('#sessionInput').val().toLowerCase().replace(/\s/g, '-').replace(/[^A-Za-z0-9_\-]/g, '');
-                    webrtc.createRoom(val, function (err, name) {
-                        console.log(' create room cb', arguments);
-                    
-                        var newUrl = location.pathname + '?' + name;
-                        if (!err) {
-                            history.replaceState({foo: 'bar'}, null, newUrl);
-                            setRoom(name);
-                        } else {
-                            console.log(err);
-                        }
-                    });
-                    return false;          
-                });
-            }
-
-            var button = $('#screenShareButton'),
-                setButton = function (bool) {
-                    button.text(bool ? 'share screen' : 'stop sharing');
-                };
-            webrtc.on('localScreenRemoved', function () {
-                setButton(true);
-            });
-
-            setButton(true);
-
-            button.click(function () {
-                if (webrtc.getLocalScreen()) {
-                    webrtc.stopScreenShare();
-                    setButton(true);
-                } else {
-                    webrtc.shareScreen(function (err) {
-                        if (err) {
-                            setButton(true);
-                        } else {
-                            setButton(false);
-                        }
-                    });
-                    
-                }
             });
         </script>
     </body>
