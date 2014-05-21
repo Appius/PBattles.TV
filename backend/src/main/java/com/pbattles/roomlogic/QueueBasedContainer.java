@@ -13,7 +13,8 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class QueueBasedContainer implements AvialibleRooms {
 
     private static final int RANDOM_STRING_LENGTH = 32;
-    private static final long REMOVAL_INTERVAL = 1000*120;
+    private static final long REMOVAL_INTERVAL = 1000*10;
+    private Long lastOperationTime = System.currentTimeMillis();
     private int usersInRoom;
     private Queue<Room> avialableRooms = new ConcurrentLinkedQueue<Room>();
     private ThreadPoolTaskScheduler scheduler;
@@ -25,6 +26,7 @@ public class QueueBasedContainer implements AvialibleRooms {
 
     @Override
     public Room getAvialableRoom() {
+        lastOperationTime = System.currentTimeMillis();
         Room currentRoom = avialableRooms.poll();
         if(currentRoom == null){
             fillContainerWithNewRoom();
@@ -56,6 +58,7 @@ public class QueueBasedContainer implements AvialibleRooms {
     private class QueueCleaner implements Runnable {
         @Override
         public void run() {
+            if(System.currentTimeMillis() - lastOperationTime > 1000*20)
             avialableRooms.clear();
         }
     }
