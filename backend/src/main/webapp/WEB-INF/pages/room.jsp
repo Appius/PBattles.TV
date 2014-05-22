@@ -101,45 +101,8 @@
                         <li class="clearfix">
                             <div class="chat-body clearfix">
                                 <div class="header">
-                                    <strong class="primary-font">Nicola</strong>
+                                    <strong class="primary-font">  Start Chatting here!</strong>
                                 </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <strong class="primary-font">You</strong>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <strong class="primary-font">Nicola</strong>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <strong class="primary-font">Nicola</strong>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
                             </div>
                         </li>
                     </ul>
@@ -155,11 +118,11 @@
                             var socket = io.connect('http://localhost:2013');
                             var room = '${room.name}';
                             socket.emit('join', room);
-
+                            var login = '${login}';
 
                             socket.on('message', function (message){
                                 var message_template = '<li class="clearfix"><div class="chat-body clearfix"><div class="header">'+
-                                        '<strong class="primary-font">'+'Name'+'</strong></div><p>'+message+'</p></div></li>';
+                                        '<strong class="primary-font">'+message.from+'</strong></div><p>'+message.text+'</p></div></li>';
 
                                 $('#chat').append(message_template);
                                 $("html, body").animate({scrollTop: $('#chat').height()}, 500);
@@ -170,7 +133,7 @@
                                 var message = $('#text-field').val();
                                 if(message.length != 0){
                                     $('#text-field').val('');
-                                    socket.emit('message', message);
+                                    socket.emit('message', {text: message,from: login});
                                 }
                             });
 
@@ -180,7 +143,7 @@
                                     var message = $('#text-field').val();
                                     if(message.length != 0){
                                         $('#text-field').val('');
-                                        socket.emit('message', message);
+                                        socket.emit('message', {text: message,from: login});
                                     }
                                 }
                             });
