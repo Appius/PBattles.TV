@@ -12,6 +12,7 @@
     <link href="css/index.css" rel="stylesheet" />
     <link href="css/site.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/socialbuttons.css" rel="stylesheet" />
     <script src="js/modernizr.min.js"></script>
 </head>
 
@@ -60,7 +61,7 @@
                 <h1 class="brand-heading">Kitty Battles TV</h1>
                 <p class="intro-text">A free, premium quality, staggering battles of your kitties online via video chat.</p>
                 <a href="chat.html" class="btn btn-default btn-lg">Enter anonymously</a>
-                <a href="#login" class="btn btn-default btn-lg page-scroll">Login</a>
+                <a href="#" data-toggle="modal" data-target="#log-in" class="btn btn-default btn-lg page-scroll">Login</a>
             </div>
         </div>
     </div>
@@ -183,10 +184,97 @@
     </div>
 </footer>
 
+<!--Modal window "Login/Registration"-->
+<div class="modal fade" id="log-in" data-keyboard="false" data-target=".bs-example-modal-lg">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Login / registration</h4>
+            </div>
+            <div class="modal-body">
+                <div id="login-section" class="col-lg-6" >
+                    <ul class="list-inline banner-social-buttons">
+                        <li>
+                            <button class="btn btn-twitter btn-sm"><i class="fa fa-twitter"></i> Twitter</button>
+                        </li>
+                        <li>
+                            <button class="btn btn-facebook btn-sm"><i class="fa fa-facebook"></i> Facebook</button>
+                        </li>
+                        <li>
+                            <button class="btn btn-google-plus btn-sm"><i class="fa fa-google-plus"></i> Google +</button>
+                        </li>
+                        <li>
+                            <button class="btn btn-vk btn-sm"><i class="fa fa-vk"></i> VK</button>
+                        </li>
+                    </ul>
+
+                        <form action="/" class="form-horizontal" method="post" onsubmit="$(this).find('input[type=\'submit\']').attr('disabled', 'disabled');">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input class="form-control" data-val="true" data-val-required="The login field is required." id="username" name="username" placeholder="Login" value="" type="text">
+                            </div>
+                            <span class="help-block"><span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span></span>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input class="form-control" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" placeholder="Password" type="password">
+                            </div>
+                            <span class="help-block"><span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span></span>
+                            <div style="padding: 0 10px;">
+                                <label class="checkbox pull-left">
+                                    <input data-val="true" data-val-required="The Remember me? field is required." id="RememberMe" name="RememberMe" value="true" type="checkbox">
+                                    <input name="RememberMe" value="false" type="hidden">
+                                    <label for="RememberMe">Remember me?</label>
+                                </label>
+                                <input value="Login" class="btn btn-renren btn-sm pull-right" type="submit">
+                                <div class="clearfix"></div>
+                            </div>
+
+                        </form>
+
+
+                </div>
+                <div id="registration-section" class="col-lg-6" style="padding-right:20px; border-left: 2px solid #ccc;">
+                    <!--<h4>Registration</h4>-->
+                    <form action="/" class="form-horizontal" method="post" onsubmit="$(this).find('input[type=\'submit\']').attr('disabled', 'disabled');">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <input class="form-control" data-val="true" data-val-required="The Username field is required." id="username-reg" name="username" placeholder="Login" value="" type="text">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-male"></i></span>
+                            <input class="form-control" data-val="true" data-val-required="The Display Name Password field is required." id="DisplayName-reg" name="DisplayName-reg" placeholder="Display Name" type="text">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            <input class="form-control" data-val="true" data-val-required="The Password field is required." id="Password-reg" name="Password" placeholder="Password" type="password">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            <input class="form-control" data-val="true" data-val-required="The Confirm Password field is required." id="ConfirmPassword-reg" name="Password-reg" placeholder="Confirm Password" type="password">
+                        </div>
+                        <span class="help-block"><span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span></span>
+                        <div style="padding: 0 10px;">
+                            <input value="Register" class="btn btn-xing btn-sm pull-right" type="submit">
+                            <div class="clearfix"></div>
+                        </div>
+                    </form>
+
+                </div>
+                <footer style="padding: 0 20px;">
+                    <i class="fa fa-spinner fa-spin"></i> Loading...
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="js/jquery-2.1.0.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.easing.min.js"></script>
+<script src="js/jquery.slimscroll.min.js"></script>
 <script src="js/site.js"></script>
+
 </body>
 
 </html>

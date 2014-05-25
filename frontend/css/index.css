@@ -241,6 +241,7 @@ section.intro a{
 
 .banner-social-buttons {
     margin-top: 0;
+    text-align: center;
 }
 
 @media(max-width:1199px) {
@@ -334,4 +335,24 @@ footer {
     .help-section {
         padding-top: 100px;
     }
+}
+
+/* Styles for signin section
+-----------------------------------------------------------*/
+#log-in {
+    color: #333;
+    overflow-y: visible;
+    overflow-x: hidden;
+    top: 15%;
+}
+
+#log-in .modal-dialog {
+    width: 1000px;
+}
+
+#log-in h4 {
+    margin: 0 0 10px 10px;
+}
+#log-in .input-group {
+    padding: 5px 0;
 }
