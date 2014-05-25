@@ -69,67 +69,6 @@
     </div>
 </section>
 
-
-<!-----------------------------------------LOGIN SECTION----------------------------------------->
-<!--<section id="login" class="container login-section text-center omb_login">
-    <div class="row">
-        <h2>Login</h2>
-        <ul class="list-inline banner-social-buttons">
-            <li>
-                <a href="#" class="btn btn-default btn-lg">
-                    <i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="btn btn-default btn-lg">
-                    <i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="btn btn-default btn-lg">
-                    <i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="btn btn-default btn-lg">
-                    <i class="fa fa-vk fa-fw"></i> <span class="network-name">Vk</span>
-                </a>
-            </li>
-        </ul>
-
-        <div class="row omb_row-sm-offset-3 omb_loginOr">
-            <div class="col-xs-12 col-sm-6">
-                <hr class="omb_hrOr">
-                <span class="omb_spanOr">or</span>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-lg-offset-4">
-            <form novalidate="novalidate" action="/" class="form-horizontal" method="post" onsubmit="$(this).find('input[type=\'submit\']').attr('disabled', 'disabled');"><input name="__RequestVerificationToken" value="XXwr25yUp6qsaKxJHsvgx-1g-HVeIB1R6kk2gKKvkliqpyKlOjdQXUHSgF2pUQ84KhFai1Pq2yTnbfKAb4TG09t_vGge4MQH7p1Gy_3efZc1" type="hidden">                <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <input class="form-control" data-val="true" data-val-required="The Email address field is required." id="Email" name="Email" placeholder="email address" value="" type="text">
-            </div>
-                <span class="help-block"><span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span></span>
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                    <input class="form-control" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" placeholder="Password" type="password">
-                </div>
-                <span class="help-block"><span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span></span>
-                <input value="Login" class="btn btn-lg btn-default btn-block" type="submit">
-            </form>
-        </div>
-
-        <div class="col-lg-4 col-lg-offset-4">
-            <div class="col-lg-5">
-                <label class="checkbox">
-                    <input data-val="true" data-val-required="The Remember me? field is required." id="RememberMe" name="RememberMe" value="true" type="checkbox"><input name="RememberMe" value="false" type="hidden">
-                    <label for="RememberMe">Remember me?</label>
-                </label>
-            </div>
-        </div>
-    </div>
-</section>-->
-
 <!-----------------------------------------ABOUT SECTION----------------------------------------->
 <section id="about" class="container about-section text-center ">
     <div class="col-lg-8 col-lg-offset-2">
@@ -186,7 +125,7 @@
     </div>
 </footer>
 
-<!--Modal window "Login/Registration"-->
+<!-----------------------------------------LOGIN|REG SECTION----------------------------------------->
 <div class="modal fade" id="log-in" data-keyboard="false" data-target=".bs-example-modal-lg">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -237,7 +176,6 @@
 
                 </div>
                 <div id="registration-section" class="col-lg-6" style="padding-right:20px; border-left: 2px solid #ccc;">
-                    <!--<h4>Registration</h4>-->
                     <form action="/" class="form-horizontal" method="post" onsubmit="$(this).find('input[type=\'submit\']').attr('disabled', 'disabled');">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
@@ -256,7 +194,11 @@
                             <input class="form-control" data-val="true" data-val-required="The Confirm Password field is required." id="ConfirmPassword-reg" name="Password-reg" placeholder="Confirm Password" type="password">
                         </div>
                         <span class="help-block"><span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span></span>
-                        <div style="padding: 0 10px;">
+
+                        <img src="http://www.androidnova.org/wp-content/uploads/2012/09/setwidth700-recaptcha-example.gif" width="300px"/>
+                        <!--HERE:       https://www.google.com/recaptcha-->
+
+                        <div style="padding: 10px;">
                             <input value="Register" class="btn btn-xing btn-sm pull-right" type="submit">
                             <div class="clearfix"></div>
                         </div>
