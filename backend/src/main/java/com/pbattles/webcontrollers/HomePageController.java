@@ -41,6 +41,8 @@ public class HomePageController {
     public String registerAndMoveToTheWaitingRoom(Model model) throws InterruptedException {
         Room room = roomService.getRandomRoom();
         model.addAttribute("room",room);
+        String randomLogin = "guest"+new Random().nextInt(1000*100);
+        model.addAttribute("login",randomLogin);
         return "room";
     }
 
