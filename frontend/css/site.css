@@ -84,8 +84,8 @@
 .omb_login .omb_loginOr .omb_hrOr {
     background-color: #cdcdcd;
     height: 1px;
-    margin-bottom: 0px !important;
-    margin-top: 0px !important;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
 }
 
 .omb_login .omb_loginOr .omb_spanOr {
@@ -103,43 +103,3 @@
 .omb_login .omb_loginForm .input-group.i { width: 2em; }
 
 .omb_login .omb_loginForm .help-block { color: red; }
-
-.navbar {
-    margin-bottom: 0;
-    border-bottom: 1px solid rgba(255,255,255,.3);
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    background-color: black;
-    opacity: 0.5;
-    color: white;
-}
-
-.navbar-brand {
-    font-weight: 700;
-}
-
-.navbar-brand:focus {
-    outline: 0;
-}
-
-.navbar-custom a {
-    color: #fff;
-}
-
-.navbar-custom .nav li a:hover,
-.navbar-custom .nav li a:focus,
-.navbar-custom .nav li.active {
-    outline: 0;
-    background-color: rgba(255,255,255,.2);
-}
-
-.navbar-toggle {
-    padding: 4px 6px;
-    font-size: 16px;
-    color: #fff;
-}
-
-.navbar-toggle:focus,
-.navbar-toggle:active {
-    outline: 0;
-}

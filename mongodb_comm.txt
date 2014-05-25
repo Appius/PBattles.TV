@@ -1,0 +1,5 @@
+﻿configserver 1: 27020
+	sudo mongod --configsvr --dbpath /data/configdb --port 27020
+
+router: 27016
+	mongos --configdb 127.0.0.1:27020 --port 27016
