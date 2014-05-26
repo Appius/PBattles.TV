@@ -1,5 +1,5 @@
-﻿configserver 1: 27020
-	sudo mongod --configsvr --dbpath /data/configdb --port 27020
+﻿configserver 1: 27019
+	sudo mongod --port 27019 --configsvr --dbpath /data/configdb --fork --logpath /var/log/mongodb/mongod_configsrv.log
 
-router: 27016
-	mongos --configdb 127.0.0.1:27020 --port 27016
+router: 27017
+	sudo mongos --port 17017 --configdb localhost:27019 --fork --logpath /var/log/mongodb/mongos.log
