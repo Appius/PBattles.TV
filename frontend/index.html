@@ -12,8 +12,10 @@
     <link href="css/index.css" rel="stylesheet" />
     <link href="css/site.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" /> -->
+    <link href="css/ladda.min.css" rel="stylesheet" />
+    <link href="css/ladda-themeless.min.css" rel="stylesheet" />
     <link href="css/socialbuttons.css" rel="stylesheet" />
-    <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" />
 
     <script src="js/modernizr.min.js"></script>
 </head>
@@ -37,9 +39,6 @@
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
-                <!--<li class="page-scroll">
-                    <a href="#login">Login</a>
-                </li>-->
                 <li class="page-scroll">
                     <a href="#about">About</a>
                 </li>
@@ -69,7 +68,7 @@
     </div>
 </section>
 
-<!-----------------------------------------ABOUT SECTION----------------------------------------->
+<!--ABOUT SECTION-->
 <section id="about" class="container about-section text-center ">
     <div class="col-lg-8 col-lg-offset-2">
         <h2>About Kitty Battles.TV</h2>
@@ -82,40 +81,55 @@
 </section>
 
 
-<!-----------------------------------------CONTACT SECTION----------------------------------------->
+<!--CONTACT SECTION-->
 <section id="contact" class="container contact-section text-center">
-    <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <h2>Contact us</h2>
             <p>Feel free to email us to provide some feedback on our video chat, give us suggestions, or to just say hello!</p>
 
-            <div class="col-md-4">
-                <img src="img/epikmoore_2.jpg" alt="penis" width="90" height="90" />
-            </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-md-offset-4">
                 <p>joseph.bloodhell@gmail.com</p>
-            </div>
-            <div class="col-md-4">
-                <img src="img/epikmoore.jpg" alt="penis" width="90" height="90" />
-            </div>
+            </div>            
         </div>
-    </div>
 </section>
 
 
-<!-----------------------------------------HELP SECTION----------------------------------------->
+<!--HELP SECTION-->
 <section id="help" class="container help-section text-center">
     <div class="col-lg-8 col-lg-offset-2">
         <h2>Help</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aliquid beatae cum dicta dolor
+        <div class="row" style="margin-bottom: 40px;">
+            <div class="col-lg-3">
+                Orem ipsum dolor sit amet, consectetur adipisicing elit. Culpa delectus eos officiis quod temporibus
+                vero! Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br/>Accusamus ad aliquid beatae cum dicta dolor
+                ea eaque eius enim.
+            </div>
+            <div class="col-lg-3">
+                Ipsa ipsam libero maiores molestiae nam, nobis nulla numquam perferendis perspiciatis quae qui quidem
+                quisquam quod reiciendis similique sint sit soluta sunt tempora ut.<br/>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aliquid beatae cum dicta dolor
+                ea eaque eius enim esse explicabo fugiat h<br/>arum illo illum in ipsa ipsam libero maiores molestiae nam,
+                nobis!
+            </div>
+            <div class="col-lg-3">
+                Orem ipsum dolor sit amet, consectetur adipisicing elit. Culpa delectus eos officiis quod temporibus
+                vero! Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br/>Accusamus ad aliquid beatae cum dicta dolor
+                ea eaque eius enim esse explicabo <br/>fugiat harum illo illum. Orem ipsum dolor sit amet, consectetur adipisicing
+                elit. <br/>Culpa delectus eos officiis quod temporibus vero! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Accusamus ad aliquid beatae cum dicta <br/>dolor ea eaque eius enim esse explicabo fugiat harum illo illum.
+            </div>
+            <div class="col-lg-3">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br/>Accusamus ad aliquid beatae cum dicta dolor
+                ea eaque eius enim esse explicabo fugiat harum illo illum in.<br/>
+            </div>
+        </div>
+
+        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aliquid beatae cum dicta dolor
             ea eaque eius enim esse explicabo fugiat harum illo illum in ipsa ipsam libero maiores molestiae nam,
             nobis nulla numquam perferendis perspiciatis quae qui quidem quisquam quod reiciendis similique sint
-            sit soluta sunt tempora ut!</p>
+            sit soluta sunt tempora ut!</p> -->
         <p>Found bug? Any suggestions? Email us about it.</p>
-
-        <div class="col-md-4 col-md-offset-4">
-            <p>joseph.bloodhell@gmail.com</p>
-        </div>
+        <p>joseph.bloodhell@gmail.com</p>
     </div>
 </section>
 
@@ -125,7 +139,7 @@
     </div>
 </footer>
 
-<!-----------------------------------------LOGIN|REG SECTION----------------------------------------->
+<!--LOGIN|REG SECTION-->
 <div class="modal fade" id="log-in" data-keyboard="false" data-target=".bs-example-modal-lg">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -150,7 +164,7 @@
                         </li>
                     </ul>
 
-                        <form action="/" class="form-horizontal" method="post" onsubmit="$(this).find('input[type=\'submit\']').attr('disabled', 'disabled');">
+                        <form action="/" class="form-horizontal" method="post">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                 <input class="form-control" data-val="true" data-val-required="The login field is required." id="username" name="username" placeholder="Login" value="" type="text">
@@ -167,7 +181,12 @@
                                     <input name="RememberMe" value="false" type="hidden">
                                     <label for="RememberMe">Remember me?</label>
                                 </label>
-                                <input value="Login" class="btn btn-renren btn-sm pull-right" type="submit">
+                                <a href="#" id="form-login-submit" class="btn btn-renren btn-sm pull-right ladda-button" data-style="expand-left" data-size="xs">
+                                    <span class="ladda-label">Login</span>
+                                </a>
+
+                                <!-- <input value="Login" class="btn btn-renren btn-sm pull-right" type="submit"> -->
+
                                 <div class="clearfix"></div>
                             </div>
 
@@ -176,7 +195,7 @@
 
                 </div>
                 <div id="registration-section" class="col-lg-6" style="padding-right:20px; border-left: 2px solid #ccc;">
-                    <form action="/" class="form-horizontal" method="post" onsubmit="$(this).find('input[type=\'submit\']').attr('disabled', 'disabled');">
+                    <form action="/" class="form-horizontal" method="post">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
                             <input class="form-control" data-val="true" data-val-required="The Username field is required." id="username-reg" name="username" placeholder="Login" value="" type="text">
@@ -199,15 +218,16 @@
                         <!--HERE:       https://www.google.com/recaptcha-->
 
                         <div style="padding: 10px;">
-                            <input value="Register" class="btn btn-xing btn-sm pull-right" type="submit">
+                            <a href="#" id="form-reg-submit" class="btn btn-xing btn-lg ladda-button pull-right" data-style="expand-left" data-size="xs">
+                                <span class="ladda-label">Register</span>
+                            </a>
+
                             <div class="clearfix"></div>
                         </div>
                     </form>
 
                 </div>
-                <footer style="padding: 0 20px;">
-                    <i class="fa fa-spinner fa-spin"></i> Loading...
-                </footer>
+                <div class="clearfix"></div>
             </div>
         </div>
     </div>
@@ -216,14 +236,54 @@
 <script src="js/jquery-2.1.0.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.easing.min.js"></script>
-<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<!-- <script src="js/jquery.mCustomScrollbar.concat.min.js"></script> -->
+<script src="js/spin.min.js"></script>
+<script src="js/ladda.min.js"></script>
+
 <script src="js/site.js"></script>
 
-<!--<script>
-    (function(){
-            $("section").mCustomScrollbar();
-    })();
-</script>-->
+<script>
+    $('#form-reg-submit').click(function(e){
+        e.preventDefault();
+        var l = Ladda.create(this);
+        l.start();
+
+        /*   POST REQUEST HERE   */
+        /*$.post("your-url", 
+            { data : data },
+          function(response){
+            console.log(response);
+          }, "json")
+        .always(function() { l.stop(); });*/
+
+        setTimeout(function(){
+            l.stop();
+        }, 2000);
+
+        return false;
+    });
+
+    $('#form-login-submit').click(function(e){
+        e.preventDefault();
+        var l = Ladda.create(this);
+        l.start();
+
+        /*   POST REQUEST HERE   */
+        /*$.post("your-url", 
+            { data : data },
+          function(response){
+            console.log(response);
+          }, "json")
+        .always(function() { l.stop(); });*/
+
+        setTimeout(function(){
+            l.stop();
+        }, 2000);
+
+        return false;
+    });
+
+</script>
 
 </body>
 

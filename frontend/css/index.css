@@ -305,7 +305,7 @@ footer {
     padding-bottom: 100px;
 }
 
-.about-section, .help-section {
+.about-section, .help-section, .contact-section {
     width: 100%;
     padding: 50px 0;
     color: #fff;
@@ -315,13 +315,13 @@ footer {
     -o-background-size: cover;
 }
 
-.about-section {
-    background: #000 url(../img/about-section.jpg) no-repeat scroll center center;
+.contact-section {
+    background: #000 url(../img/about-section.jpg) scroll center no-repeat;
 }
 
-.help-section {
+/*.help-section {
     background: #000 url(../img/help-section.jpg) no-repeat scroll center center;
-}
+}*/
 
 @media(min-width:767px) {
     .login-section, .contact-section {

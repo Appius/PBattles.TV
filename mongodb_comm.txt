@@ -2,4 +2,4 @@
 	sudo mongod --port 27019 --configsvr --dbpath /data/configdb --fork --logpath /var/log/mongodb/mongod_configsrv.log
 
 router: 27017
-	sudo mongos --port 17017 --configdb localhost:27019 --fork --logpath /var/log/mongodb/mongos.log
+	sudo mongos --port 27017 --configdb localhost:27019 --fork --logpath /var/log/mongodb/mongos.log
