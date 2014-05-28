@@ -124,10 +124,6 @@
             </div>
         </div>
 
-        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aliquid beatae cum dicta dolor
-            ea eaque eius enim esse explicabo fugiat harum illo illum in ipsa ipsam libero maiores molestiae nam,
-            nobis nulla numquam perferendis perspiciatis quae qui quidem quisquam quod reiciendis similique sint
-            sit soluta sunt tempora ut!</p> -->
         <p>Found bug? Any suggestions? Email us about it.</p>
         <p>joseph.bloodhell@gmail.com</p>
     </div>
@@ -151,13 +147,13 @@
                 <div id="login-section" class="col-lg-6" >
                     <ul class="list-inline banner-social-buttons">
                         <li>
-                            <button class="btn btn-twitter btn-sm"><i class="fa fa-twitter"></i> Twitter</button>
+                            <button class="btn btn-twitter btn-sm" id="twitterlogin"><i class="fa fa-twitter"></i> Twitter</button>
                         </li>
                         <li>
-                            <button class="btn btn-facebook btn-sm"><i class="fa fa-facebook"></i> Facebook</button>
+                            <button class="btn btn-facebook btn-sm" id="fbLogin" onclick=""><i class="fa fa-facebook"></i> Facebook</button>
                         </li>
                         <li>
-                            <button class="btn btn-google-plus btn-sm"><i class="fa fa-google-plus"></i> Google +</button>
+                            <button class="btn btn-google-plus btn-sm" id="googlelogin"><i class="fa fa-google-plus"></i> Google +</button>
                         </li>
                         <li>
                             <button class="btn btn-vk btn-sm"><i class="fa fa-vk"></i> VK</button>
@@ -210,7 +206,7 @@
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                            <input class="form-control" data-val="true" data-val-required="The Confirm Password field is required." id="ConfirmPassword-reg" name="Password-reg" placeholder="Confirm Password" type="password">
+                            <input class="form-control" data-val="true" data-val-required="The Confirm Password field is required." id="ConfirmPassword-reg" name="ConfirmPassword-reg" placeholder="Confirm Password" type="password">
                         </div>
                         <span class="help-block"><span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span></span>
 
@@ -239,6 +235,12 @@
 <!-- <script src="js/jquery.mCustomScrollbar.concat.min.js"></script> -->
 <script src="js/spin.min.js"></script>
 <script src="js/ladda.min.js"></script>
+<script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/3.3.0/build/yui/yui-min.js"></script>
+<script src="js/cookie.js"></script>
+<script src="js/twitterLogin.js"></script>
+<script src="js/googleLogin.js"></script>
+<script src="js/fbLogin.js"></script>
 
 <script src="js/site.js"></script>
 
