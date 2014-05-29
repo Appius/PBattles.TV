@@ -22,12 +22,7 @@ import java.util.Random;
 @Controller
 public class HomePageController {
 
-    @Autowired
-    private IUserContainer container;
 
-    @Qualifier("webViewReponseHandler")
-    @Autowired
-    private ResponseHandler responseHandler;
 
     @Autowired
     private RandomRoomService roomService;
@@ -38,7 +33,7 @@ public class HomePageController {
     }
 
     @RequestMapping(value = "room", method = RequestMethod.GET)
-    public String registerAndMoveToTheWaitingRoom(Model model) throws InterruptedException {
+    public String moveToTheWaitingRoom(Model model) throws InterruptedException {
         Room room = roomService.getRandomRoom();
         model.addAttribute("room",room);
         String randomLogin = "guest"+new Random().nextInt(1000*100);
@@ -46,12 +41,4 @@ public class HomePageController {
         return "room";
     }
 
-
-    public void setContainer(IUserContainer container) {
-        this.container = container;
-    }
-
-    public void setResponseHandler(ResponseHandler responseHandler) {
-        this.responseHandler = responseHandler;
-    }
 }

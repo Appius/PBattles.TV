@@ -12,182 +12,281 @@
     <link href="css/index.css" rel="stylesheet" />
     <link href="css/site.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" /> -->
+    <link href="css/ladda.min.css" rel="stylesheet" />
+    <link href="css/ladda-themeless.min.css" rel="stylesheet" />
+    <link href="css/socialbuttons.css" rel="stylesheet" />
+
     <script src="js/modernizr.min.js"></script>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="#page-top">
-                    <i class="fa fa-users"></i> <span class="light">Kitty</span> Battles.TV
-                </a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#login">Login</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#about">About</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Contact</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#help">Help</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="#page-top">
+                <i class="fa fa-users"></i> <span class="light">Kitty</span> Battles TV
+            </a>
         </div>
-        <!-- /.container -->
-    </nav>
 
-    <section class="intro">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <h1 class="brand-heading">Kitty Battles TV</h1>
-                    <p class="intro-text">A free, premium quality, staggering battles of your kitties online via video chat.</p>
-                    <a href="room" class="btn btn-default btn-lg">Enter anonymously</a>
-                    <a href="#login" class="btn btn-default btn-lg page-scroll">Login</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-----------------------------------------LOGIN SECTION----------------------------------------->
-    <section id="login" class="container login-section text-center omb_login">
-        <div class="row">
-            <h2>Login</h2>
-            <ul class="list-inline banner-social-buttons">
-                <li>
-                    <a href="#" class="btn btn-default btn-lg">
-                        <i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span>
-                    </a>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                <li class="hidden">
+                    <a href="#page-top"></a>
                 </li>
-                <li>
-                    <a href="#" class="btn btn-default btn-lg">
-                        <i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span>
-                    </a>
+                <li class="page-scroll">
+                    <a href="#about">About</a>
                 </li>
-                <li>
-                    <a href="#" class="btn btn-default btn-lg">
-                        <i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span>
-                    </a>
+                <li class="page-scroll">
+                    <a href="#contact">Contact</a>
                 </li>
-                <li>
-                    <a href="#" class="btn btn-default btn-lg">
-                        <i class="fa fa-vk fa-fw"></i> <span class="network-name">Vk</span>
-                    </a>
+                <li class="page-scroll">
+                    <a href="#help">Help</a>
                 </li>
             </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
 
-            <div class="row omb_row-sm-offset-3 omb_loginOr">
-                <div class="col-xs-12 col-sm-6">
-                    <hr class="omb_hrOr">
-                    <span class="omb_spanOr">or</span>
-                </div>
+<section class="intro">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                <h1 class="brand-heading">Kitty Battles TV</h1>
+                <p class="intro-text">A free, premium quality, staggering battles of your kitties online via video chat.</p>
+                <a href="room" class="btn btn-default btn-lg">Enter anonymously</a>
+                <a href="#" data-toggle="modal" data-target="#log-in" class="btn btn-default btn-lg page-scroll">Login</a>
             </div>
+        </div>
+    </div>
+</section>
 
-            <div class="col-lg-4 col-lg-offset-4">
-                    <form novalidate="novalidate" action="/" class="form-horizontal" method="post" onsubmit="$(this).find('input[type=\'submit\']').attr('disabled', 'disabled');"><input name="__RequestVerificationToken" value="XXwr25yUp6qsaKxJHsvgx-1g-HVeIB1R6kk2gKKvkliqpyKlOjdQXUHSgF2pUQ84KhFai1Pq2yTnbfKAb4TG09t_vGge4MQH7p1Gy_3efZc1" type="hidden">                <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <input class="form-control" data-val="true" data-val-required="The Email address field is required." id="Email" name="Email" placeholder="email address" value="" type="text">
-                    </div>
-                        <span class="help-block"><span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span></span>
+<!--ABOUT SECTION-->
+<section id="about" class="container about-section text-center ">
+    <div class="col-lg-8 col-lg-offset-2">
+        <h2>About Kitty Battles.TV</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa delectus eos officiis quod temporibus
+            vero!</p>
+        <p>Alias debitis ea est exercitationem explicabo incidunt itaque nulla omnis rem reprehenderit! Doloremque,
+            mollitia quo? A aut culpa dolores ea enim facilis fugit ipsam officiis omnis provident, soluta, ut veniam?</p>
+        <a href="https://github.com/Appius/PBattles.TV" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github project</span></a>
+    </div>
+</section>
+
+
+<!--CONTACT SECTION-->
+<section id="contact" class="container contact-section text-center">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>Contact us</h2>
+            <p>Feel free to email us to provide some feedback on our video chat, give us suggestions, or to just say hello!</p>
+
+            <div class="col-md-4 col-md-offset-4">
+                <p>joseph.bloodhell@gmail.com</p>
+            </div>            
+        </div>
+</section>
+
+
+<!--HELP SECTION-->
+<section id="help" class="container help-section text-center">
+    <div class="col-lg-8 col-lg-offset-2">
+        <h2>Help</h2>
+        <div class="row" style="margin-bottom: 40px;">
+            <div class="col-lg-3">
+                Orem ipsum dolor sit amet, consectetur adipisicing elit. Culpa delectus eos officiis quod temporibus
+                vero! Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br/>Accusamus ad aliquid beatae cum dicta dolor
+                ea eaque eius enim.
+            </div>
+            <div class="col-lg-3">
+                Ipsa ipsam libero maiores molestiae nam, nobis nulla numquam perferendis perspiciatis quae qui quidem
+                quisquam quod reiciendis similique sint sit soluta sunt tempora ut.<br/>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aliquid beatae cum dicta dolor
+                ea eaque eius enim esse explicabo fugiat h<br/>arum illo illum in ipsa ipsam libero maiores molestiae nam,
+                nobis!
+            </div>
+            <div class="col-lg-3">
+                Orem ipsum dolor sit amet, consectetur adipisicing elit. Culpa delectus eos officiis quod temporibus
+                vero! Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br/>Accusamus ad aliquid beatae cum dicta dolor
+                ea eaque eius enim esse explicabo <br/>fugiat harum illo illum. Orem ipsum dolor sit amet, consectetur adipisicing
+                elit. <br/>Culpa delectus eos officiis quod temporibus vero! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Accusamus ad aliquid beatae cum dicta <br/>dolor ea eaque eius enim esse explicabo fugiat harum illo illum.
+            </div>
+            <div class="col-lg-3">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br/>Accusamus ad aliquid beatae cum dicta dolor
+                ea eaque eius enim esse explicabo fugiat harum illo illum in.<br/>
+            </div>
+        </div>
+
+        <p>Found bug? Any suggestions? Email us about it.</p>
+        <p>joseph.bloodhell@gmail.com</p>
+    </div>
+</section>
+
+<footer>
+    <div class="text-center">
+        Copyright © 2014 KPI PTI | Version: 1.0.0.1
+    </div>
+</footer>
+
+<!--LOGIN|REG SECTION-->
+<div class="modal fade" id="log-in" data-keyboard="false" data-target=".bs-example-modal-lg">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Login / registration</h4>
+            </div>
+            <div class="modal-body">
+                <div id="login-section" class="col-lg-6" >
+                    <ul class="list-inline banner-social-buttons">
+                        <li>
+                            <button class="btn btn-twitter btn-sm" id="twitterlogin"><i class="fa fa-twitter"></i> Twitter</button>
+                        </li>
+                        <li>
+                            <button class="btn btn-facebook btn-sm" id="fbLogin" onclick=""><i class="fa fa-facebook"></i> Facebook</button>
+                        </li>
+                        <li>
+                            <button class="btn btn-google-plus btn-sm" id="googlelogin"><i class="fa fa-google-plus"></i> Google +</button>
+                        </li>
+                        <li>
+                            <button class="btn btn-vk btn-sm"><i class="fa fa-vk"></i> VK</button>
+                        </li>
+                    </ul>
+
+                        <form action="/" class="form-horizontal" method="post">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input class="form-control" data-val="true" data-val-required="The login field is required." id="username" name="username" placeholder="Login" value="" type="text">
+                            </div>
+                            <span class="help-block"><span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span></span>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input class="form-control" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" placeholder="Password" type="password">
+                            </div>
+                            <span class="help-block"><span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span></span>
+                            <div style="padding: 0 10px;">
+                                <label class="checkbox pull-left">
+                                    <input data-val="true" data-val-required="The Remember me? field is required." id="RememberMe" name="RememberMe" value="true" type="checkbox">
+                                    <input name="RememberMe" value="false" type="hidden">
+                                    <label for="RememberMe">Remember me?</label>
+                                </label>
+                                <a href="#" id="form-login-submit" class="btn btn-renren btn-sm pull-right ladda-button" data-style="expand-left" data-size="xs">
+                                    <span class="ladda-label">Login</span>
+                                </a>
+
+                                <!-- <input value="Login" class="btn btn-renren btn-sm pull-right" type="submit"> -->
+
+                                <div class="clearfix"></div>
+                            </div>
+
+                        </form>
+
+
+                </div>
+                <div id="registration-section" class="col-lg-6" style="padding-right:20px; border-left: 2px solid #ccc;">
+                    <form action="/" class="form-horizontal" method="post">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <input class="form-control" data-val="true" data-val-required="The Username field is required." id="username-reg" name="username" placeholder="Login" value="" type="text">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-male"></i></span>
+                            <input class="form-control" data-val="true" data-val-required="The Display Name Password field is required." id="DisplayName-reg" name="DisplayName-reg" placeholder="Display Name" type="text">
+                        </div>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                            <input class="form-control" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" placeholder="Password" type="password">
+                            <input class="form-control" data-val="true" data-val-required="The Password field is required." id="Password-reg" name="Password" placeholder="Password" type="password">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            <input class="form-control" data-val="true" data-val-required="The Confirm Password field is required." id="ConfirmPassword-reg" name="ConfirmPassword-reg" placeholder="Confirm Password" type="password">
                         </div>
                         <span class="help-block"><span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span></span>
-                        <input value="Login" class="btn btn-lg btn-default btn-block" type="submit">
+
+                        <img src="http://www.androidnova.org/wp-content/uploads/2012/09/setwidth700-recaptcha-example.gif" width="300px"/>
+                        <!--HERE:       https://www.google.com/recaptcha-->
+
+                        <div style="padding: 10px;">
+                            <a href="#" id="form-reg-submit" class="btn btn-xing btn-lg ladda-button pull-right" data-style="expand-left" data-size="xs">
+                                <span class="ladda-label">Register</span>
+                            </a>
+
+                            <div class="clearfix"></div>
+                        </div>
                     </form>
-            </div>
 
-            <div class="col-lg-4 col-lg-offset-4">
-                <div class="col-lg-5">
-                    <label class="checkbox">
-                        <input data-val="true" data-val-required="The Remember me? field is required." id="RememberMe" name="RememberMe" value="true" type="checkbox"><input name="RememberMe" value="false" type="hidden">
-                        <label for="RememberMe">Remember me?</label>
-                    </label>
                 </div>
+                <div class="clearfix"></div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<!-- <script src="js/jquery.mCustomScrollbar.concat.min.js"></script> -->
+<script src="js/spin.min.js"></script>
+<script src="js/ladda.min.js"></script>
+<script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/3.3.0/build/yui/yui-min.js"></script>
+<script src="js/cookie.js"></script>
+<script src="js/twitterLogin.js"></script>
+<script src="js/googleLogin.js"></script>
+<script src="js/fbLogin.js"></script>
 
-    <!-----------------------------------------ABOUT SECTION----------------------------------------->
-    <section id="about" class="container about-section text-center ">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>About KittyBattles.TV</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa delectus eos officiis quod temporibus
-                    vero!</p>
-                <p>Alias debitis ea est exercitationem explicabo incidunt itaque nulla omnis rem reprehenderit! Doloremque,
-                    mollitia quo? A aut culpa dolores ea enim facilis fugit ipsam officiis omnis provident, soluta, ut veniam?</p>
-                <a href="https://github.com/Appius/PBattles.TV" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github project</span></a>
-        </div>
-    </section>
+<script src="js/site.js"></script>
 
+<script>
+    $('#form-reg-submit').click(function(e){
+        e.preventDefault();
+        var l = Ladda.create(this);
+        l.start();
 
-    <!-----------------------------------------CONTACT SECTION----------------------------------------->
-    <section id="contact" class="container contact-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Contact us</h2>
-                <p>Feel free to email us to provide some feedback on our video chat, give us suggestions, or to just say hello!</p>
+        /*   POST REQUEST HERE   */
+        /*$.post("your-url", 
+            { data : data },
+          function(response){
+            console.log(response);
+          }, "json")
+        .always(function() { l.stop(); });*/
 
-                <div class="col-md-4">
-                    <img src="imgs/Penis_Fighter.jpg" alt="penis" />
-                </div>
-                <div class="col-md-4">
-                    <p>joseph.bloodhell@gmail.com</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="imgs/Penis_Fighter_1.jpg" alt="penis" />
-                </div>
-            </div>
-        </div>
-    </section>
+        setTimeout(function(){
+            l.stop();
+        }, 2000);
 
+        return false;
+    });
 
-    <!-----------------------------------------HELP SECTION----------------------------------------->
-    <section id="help" class="container help-section text-center">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Help</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aliquid beatae cum dicta dolor
-                   ea eaque eius enim esse explicabo fugiat harum illo illum in ipsa ipsam libero maiores molestiae nam,
-                   nobis nulla numquam perferendis perspiciatis quae qui quidem quisquam quod reiciendis similique sint
-                   sit soluta sunt tempora ut!</p>
-                <p>Found bug? Any suggestions? Email us about it.</p>
+    $('#form-login-submit').click(function(e){
+        e.preventDefault();
+        var l = Ladda.create(this);
+        l.start();
 
-                <div class="col-md-4 col-md-offset-4">
-                    <p>joseph.bloodhell@gmail.com</p>
-                </div>
-            </div>
-    </section>
+        /*   POST REQUEST HERE   */
+        /*$.post("your-url", 
+            { data : data },
+          function(response){
+            console.log(response);
+          }, "json")
+        .always(function() { l.stop(); });*/
 
-    <footer>
-        <div class="text-center">
-            Copyright © 2014 KPI PTI | Version: 1.0.0.1
-        </div>
-    </footer>
+        setTimeout(function(){
+            l.stop();
+        }, 2000);
 
-    <script src="js/jquery-2.1.0.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/site.js"></script>
+        return false;
+    });
+
+</script>
+
 </body>
 
 </html>
