@@ -10,19 +10,19 @@ rs.status();
 
 ===============================================
 configserver: 27019
-	sudo mongod --port 27019 --configsvr --dbpath /data/configdb --fork --logpath /var/log/mongodb/mongod_configsrv.log
+	sudo mongod --port 27019 --configsvr --dbpath /data/configdb --fork --logpath /var/log/mongodb/mongod_configsrv.log --smallfiles
 
 router: 27017
 	sudo mongos --port 27017 --configdb localhost:27019 --fork --logpath /var/log/mongodb/mongos.log
 
 shard: 27020
-	sudo mongod --port 27020 --dbpath /srv/mongodb/rs0-0 --replSet rs0 --fork --logpath /var/log/mongodb/rs0-0.log --bind_ip 127.0.0.1
+	sudo mongod --port 27020 --dbpath /srv/mongodb/rs0-0 --replSet rs0 --fork --logpath /var/log/mongodb/rs0-0.log --bind_ip 127.0.0.1 --smallfiles
 
 shard: 27021
-	sudo mongod --port 27021 --dbpath /srv/mongodb/rs0-1 --replSet rs0 --fork --logpath /var/log/mongodb/rs0-1.log --bind_ip 127.0.0.1
+	sudo mongod --port 27021 --dbpath /srv/mongodb/rs0-1 --replSet rs0 --fork --logpath /var/log/mongodb/rs0-1.log --bind_ip 127.0.0.1 --smallfiles
 
 shard: 27022
-	sudo mongod --port 27022 --dbpath /srv/mongodb/rs0-2 --replSet rs0 --fork --logpath /var/log/mongodb/rs0-2.log --bind_ip 127.0.0.1
+	sudo mongod --port 27022 --dbpath /srv/mongodb/rs0-2 --replSet rs0 --fork --logpath /var/log/mongodb/rs0-2.log --bind_ip 127.0.0.1 --smallfiles
 
 config file for initiate primary shard
 	var rsconfig = {"_id":"rs0","members":[{"_id":1,"host":"127.0.0.1:27020"},{"_id":2,"host":"127.0.0.1:27021"},{"_id":3,"host":"127.0.0.1:27022"}]}
