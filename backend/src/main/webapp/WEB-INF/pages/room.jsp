@@ -115,7 +115,7 @@
                         </form>
                         <script>
 
-                            var socket = io.connect('http://localhost:2013');
+                            var socket = io.connect('http://epuakyiw0447:2013');
                             var room = '${room.name}';
                             socket.emit('join', room);
                             var login = '${login}';
@@ -161,7 +161,7 @@
     // grab the room from the URL
      var room = '${room.name}';
 
-    $('#setmodal').modal('show');
+//    $('#setmodal').modal('show');
 
     // create our webrtc connection
     var webrtc = new SimpleWebRTC({

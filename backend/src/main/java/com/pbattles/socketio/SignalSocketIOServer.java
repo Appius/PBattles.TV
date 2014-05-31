@@ -34,7 +34,7 @@ public class SignalSocketIOServer {
 
     private Configuration createConfiguration() {
         Configuration config = new Configuration();
-        config.setHostname("localhost");
+        config.setHostname("epuakyiw0447");
         config.setPort(2013);
         return config;
     }
