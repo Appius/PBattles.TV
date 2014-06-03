@@ -76,4 +76,14 @@ public class RegistrationInfo {
         result = 31 * result + (passwordRepeat != null ? passwordRepeat.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "RegistrationInfo{" +
+                "login='" + login + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", passwordRepeat='" + passwordRepeat + '\'' +
+                '}';
+    }
 }

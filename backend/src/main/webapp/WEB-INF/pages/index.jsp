@@ -214,7 +214,7 @@
                         <!--HERE:       https://www.google.com/recaptcha-->
 
                         <div style="padding: 10px;">
-                            <a href="#" id="form-reg-submit" class="btn btn-xing btn-lg ladda-button pull-right" data-style="expand-left" data-size="xs">
+                            <a href="register" class="btn btn-xing btn-lg ladda-button pull-right" data-style="expand-left" data-size="xs">
                                 <span class="ladda-label">Register</span>
                             </a>
 
