@@ -13,6 +13,7 @@
     <link href="css/chat.css" rel="stylesheet" />
     <script src="js/modernizr.min.js"></script>
     <script src="js/jquery.js"></script>
+    <script src="js/jquery.scrollTo-1.4.2-min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.6/socket.io.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <style>
@@ -125,7 +126,7 @@
                                         '<strong class="primary-font">'+message.from+'</strong></div><p>'+message.text+'</p></div></li>';
 
                                 $('#chat').append(message_template);
-                                $("html, body").animate({scrollTop: $('#chat').height()}, 500);
+                                $("#chat").scrollTo('100%');
                             });
 
                             $('button[name="send"]').on("click", function(e){

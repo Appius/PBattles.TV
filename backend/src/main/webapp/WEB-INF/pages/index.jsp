@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -145,39 +146,20 @@
             </div>
             <div class="modal-body">
                 <div id="login-section" class="col-lg-6" >
-                    <ul class="list-inline banner-social-buttons">
-                        <li>
-                            <button class="btn btn-twitter btn-sm" id="twitterlogin"><i class="fa fa-twitter"></i> Twitter</button>
-                        </li>
-                        <li>
-                            <button class="btn btn-facebook btn-sm" id="fbLogin" onclick=""><i class="fa fa-facebook"></i> Facebook</button>
-                        </li>
-                        <li>
-                            <button class="btn btn-google-plus btn-sm" id="googlelogin"><i class="fa fa-google-plus"></i> Google +</button>
-                        </li>
-                        <li>
-                            <button class="btn btn-vk btn-sm"><i class="fa fa-vk"></i> VK</button>
-                        </li>
-                    </ul>
 
-                        <form action="/" class="form-horizontal" method="post">
+                        <form:form action="login" commandName="loginInfo" class="form-horizontal" method="post">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input class="form-control" data-val="true" data-val-required="The login field is required." id="username" name="username" placeholder="Login" value="" type="text">
+                                <input class="form-control" data-val="true" data-val-required="The login field is required." id="username" name="login" placeholder="Login" value="" type="text">
                             </div>
                             <span class="help-block"><span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span></span>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input class="form-control" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" placeholder="Password" type="password">
+                                <input class="form-control" data-val="true" data-val-required="The Password field is required." id="Password" name="password" placeholder="Password" type="password">
                             </div>
                             <span class="help-block"><span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span></span>
                             <div style="padding: 0 10px;">
-                                <label class="checkbox pull-left">
-                                    <input data-val="true" data-val-required="The Remember me? field is required." id="RememberMe" name="RememberMe" value="true" type="checkbox">
-                                    <input name="RememberMe" value="false" type="hidden">
-                                    <label for="RememberMe">Remember me?</label>
-                                </label>
-                                <a href="#" id="form-login-submit" class="btn btn-renren btn-sm pull-right ladda-button" data-style="expand-left" data-size="xs">
+                                <a onclick="document.forms[0].submit();" id="form-login-submit" class="btn btn-renren btn-sm pull-right ladda-button" data-style="expand-left" data-size="xs">
                                     <span class="ladda-label">Login</span>
                                 </a>
 
@@ -186,27 +168,27 @@
                                 <div class="clearfix"></div>
                             </div>
 
-                        </form>
+                        </form:form>
 
 
                 </div>
                 <div id="registration-section" class="col-lg-6" style="padding-right:20px; border-left: 2px solid #ccc;">
-                    <form action="/" class="form-horizontal" method="post">
+                    <form:form action="register" commandName="registrationInfo" class="form-horizontal" method="post">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                            <input class="form-control" data-val="true" data-val-required="The Username field is required." id="username-reg" name="username" placeholder="Login" value="" type="text">
+                            <input class="form-control" data-val="true" data-val-required="The Username field is required." path="login" id="username-reg" name="login" placeholder="Login" value="" type="text">
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-male"></i></span>
-                            <input class="form-control" data-val="true" data-val-required="The Display Name Password field is required." id="DisplayName-reg" name="DisplayName-reg" placeholder="Display Name" type="text">
+                            <input class="form-control" data-val="true" data-val-required="The Display Name Password field is required." path="name" id="DisplayName-reg" name="name" placeholder="Display Name" type="text">
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                            <input class="form-control" data-val="true" data-val-required="The Password field is required." id="Password-reg" name="Password" placeholder="Password" type="password">
+                            <input class="form-control" data-val="true" data-val-required="The Password field is required." path="password" id="Password-reg" name="Password" placeholder="Password" type="password">
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                            <input class="form-control" data-val="true" data-val-required="The Confirm Password field is required." id="ConfirmPassword-reg" name="ConfirmPassword-reg" placeholder="Confirm Password" type="password">
+                            <input class="form-control" data-val="true" data-val-required="The Confirm Password field is required." path="passwordRepeat" id="ConfirmPassword-reg" name="passwordRepeat" placeholder="Confirm Password" type="password">
                         </div>
                         <span class="help-block"><span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span></span>
 
@@ -215,12 +197,12 @@
 
                         <div style="padding: 10px;">
                             <a href="register" class="btn btn-xing btn-lg ladda-button pull-right" data-style="expand-left" data-size="xs">
-                                <span class="ladda-label">Register</span>
+                              <input type="submit" name="Register" />       <%-- <span class="ladda-label">Register</span>--%>
                             </a>
 
                             <div class="clearfix"></div>
                         </div>
-                    </form>
+                    </form:form>
 
                 </div>
                 <div class="clearfix"></div>

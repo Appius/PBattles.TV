@@ -1,6 +1,6 @@
 package com.pbattles.platformTest;
 
-import com.pbattles.db.dao.UserInfoDao;
+import com.pbattles.db.dao.AccountDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -19,8 +19,9 @@ public class DbTest  {
 
     public static void main(String[] args) {
       ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");
-      UserInfoDao dao = (UserInfoDao)ctx.getBean("userInfoDao");
-      System.out.println(dao.findById(1));
+      AccountDao dao = (AccountDao)ctx.getBean("registrationInfoDao");
+        System.out.println(dao.findById("first"));
+/*      System.out.println(dao.findById(1));*/
     }
 
 }

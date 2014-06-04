@@ -11,6 +11,6 @@ public interface IAccountBL {
 
 
     boolean accountWithGivenLoginExists(String name);
-    boolean registerAccount(RegistrationInfo info);
+    void registerAccount(RegistrationInfo info);
     Account getAccountByNameAndPassword(LoginInfoDTO info);
 }
