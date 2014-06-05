@@ -26,7 +26,7 @@ public class RegistrationInfoValidator implements Validator {
         RegistrationInfo info = (RegistrationInfo) o;
         System.out.println(info);
         if(info == null){
-            errors.rejectValue("name","validation fail");
+            errors.reject("name","validation fail");
         }    else {
         validateForAlreadyExistingUser(info,errors);
         validateForMatchingPasswords(info,errors);
@@ -35,13 +35,13 @@ public class RegistrationInfoValidator implements Validator {
 
     private void validateForMatchingPasswords(RegistrationInfo info,Errors e) {
         if(info.getPassword() == null || !info.getPassword().equals(info.getPasswordRepeat())){
-            e.rejectValue("password","Password does not match");
+            e.reject("password","Password does not match");
         }
     }
 
     private void validateForAlreadyExistingUser(RegistrationInfo info,Errors e) {
        if(accountBL.accountWithGivenLoginExists(info.getLogin())){
-         e.rejectValue("name","User with this login already exist");
+         e.reject("name","User with this login already exist");
         }
 
     }

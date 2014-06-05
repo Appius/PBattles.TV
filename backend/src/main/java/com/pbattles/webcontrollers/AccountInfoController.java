@@ -30,10 +30,16 @@ public class AccountInfoController {
     private IAccountBL accountBL;
 
     @RequestMapping(value="register", method = RequestMethod.POST)
-    public void registerAccount(@ModelAttribute RegistrationInfo info,BindingResult result,Model m){
+    public String registerAccount(@ModelAttribute RegistrationInfo info,BindingResult result,Model m){
         if(validateInput(info,result)){
             accountBL.registerAccount(info);
+            m.addAttribute("message","Successfully registrated, Login now!");
+            return "index";
+        } else{
+            m.addAttribute("warning","User with this login already exists or password didnt match");
+            return "index";
         }
+
     }
 
     @RequestMapping(value = "login",method = RequestMethod.POST)
@@ -42,12 +48,20 @@ public class AccountInfoController {
         System.out.println("Login DTO: "+loginInfo);
         System.out.println("Account found: "+account);
         if(account == null){
-            //handle error
+            m.addAttribute("warning","Invalid login or password");
+            return "index";
         } else {
-            //notify ok
            response.addCookie(new Cookie("account",account.getName()));
+            return "reloadmain";
         }
-        return "index";
+
+    }
+
+    @RequestMapping(value="logout"/*,method = RequestMethod.POST*/)
+    public String logout(HttpServletResponse response){
+        response.addCookie(new Cookie("account",""));
+        System.out.println("LOGOUT PRESSED");
+        return "reloadmain";
     }
 
     @RequestMapping(value="/home")
@@ -56,11 +70,6 @@ public class AccountInfoController {
         m.addAttribute("loginInfo", new LoginInfoDTO());
     }
 
-    /*
-
-        FORM LOGIC ON LOGIN\LOGOUT
-        BALANCER
-     */
     private boolean validateInput(RegistrationInfo info,BindingResult result) {
         accountValidator.validate(info, result);
         System.out.println("Validation start!");
