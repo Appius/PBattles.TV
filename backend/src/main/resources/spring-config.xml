@@ -23,7 +23,10 @@
     </bean>
 
     <bean id="signalServer" class="com.pbattles.socketio.SignalSocketIOServer" lazy-init="false" scope="singleton"
-          init-method="init" destroy-method="close"/>
+          init-method="init" destroy-method="close">
+            <property name="host" value="${socketio.host}" />
+            <property name="port" value="${socketio.port}" />
+            </bean>
 
     <bean id="roomContainer" class="com.pbattles.roomlogic.QueueBasedContainer" init-method="initSchedule">
         <property name="usersInRoom" value="5"/>
@@ -35,6 +38,16 @@
     </bean>
 
     <task:scheduler id="scheduler" pool-size="10"/>
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>
+                    classpath:properties/socketio.properties
+                </value>
+            </list>
+        </property>
+     </bean>
 
     <import resource="classpath:mainRunners.xml"/>
     <import resource="classpath:mongodb-config.xml"/>

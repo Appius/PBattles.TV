@@ -15,6 +15,10 @@ public class SignalSocketIOServer {
 
     private SocketIOServer server;
 
+    private String host;
+
+    private int port;
+
     public void init() throws InterruptedException {
         Configuration config = createConfiguration();
         server = new SocketIOServer(config);
@@ -34,8 +38,8 @@ public class SignalSocketIOServer {
 
     private Configuration createConfiguration() {
         Configuration config = new Configuration();
-        config.setHostname("localhost");
-        config.setPort(2013);
+        config.setHostname(host);
+        config.setPort(port);
         return config;
     }
 
@@ -68,5 +72,13 @@ public class SignalSocketIOServer {
 
     private String getLastElement(List<String> rooms) {
         return rooms.get(rooms.size() - 1);
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
     }
 }
