@@ -10,10 +10,21 @@
 
 
 
+    <bean id="properties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list><value>classpath:properties/socketio.properties</value></list>
+        </property>
+    </bean>
+    
     <import resource="classpath:spring-config.xml" />
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
+        <property name="exposedContextBeanNames">
+            <list>
+                <value>properties</value>
+            </list>
+        </property>
     </bean>
 
 

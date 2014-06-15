@@ -1,4 +1,4 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -61,9 +61,19 @@
         <div class="container">
             <div class="row">
                 <h1 class="brand-heading">Kitty Battles TV</h1>
+                <p class="intro-text"><font color="#fffff731">${warning}</font></p>
+                <p class="intro-text"><font color="#1bff23">${message}</font></p>
                 <p class="intro-text">A free, premium quality, staggering battles of your kitties online via video chat.</p>
-                <a href="room" class="btn btn-default btn-lg">Enter anonymously</a>
-                <a href="#" data-toggle="modal" data-target="#log-in" class="btn btn-default btn-lg page-scroll">Login</a>
+                <c:choose>
+                    <c:when test="${empty cookie.account.value}">
+                        <a href="room" class="btn btn-default btn-lg">Enter anonymously</a>
+                        <a href="#" data-toggle="modal" data-target="#log-in" class="btn btn-default btn-lg page-scroll">Login</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="room" class="btn btn-default btn-lg">Enter as ${cookie.account.value}</a>
+                        <a href="logout" class="btn btn-default btn-lg page-scroll">Logout</a>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </div>
     </div>
@@ -159,13 +169,13 @@
                             </div>
                             <span class="help-block"><span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span></span>
                             <div style="padding: 0 10px;">
-                                <a onclick="document.forms[0].submit();" id="form-login-submit" class="btn btn-renren btn-sm pull-right ladda-button" data-style="expand-left" data-size="xs">
+                                <a  onclick="document.forms[0].submit();return false" id="form-login-submit" class="btn btn-renren btn-sm pull-right ladda-button" data-style="expand-left" data-size="xs">
                                     <span class="ladda-label">Login</span>
                                 </a>
 
                                 <!-- <input value="Login" class="btn btn-renren btn-sm pull-right" type="submit"> -->
 
-                                <div class="clearfix"></div>
+                                <%--<div class="clearfix"></div>--%>
                             </div>
 
                         </form:form>
@@ -174,6 +184,7 @@
                 </div>
                 <div id="registration-section" class="col-lg-6" style="padding-right:20px; border-left: 2px solid #ccc;">
                     <form:form action="register" commandName="registrationInfo" class="form-horizontal" method="post">
+                       <%-- <form:errors path="*" />--%>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
                             <input class="form-control" data-val="true" data-val-required="The Username field is required." path="login" id="username-reg" name="login" placeholder="Login" value="" type="text">
@@ -192,12 +203,13 @@
                         </div>
                         <span class="help-block"><span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span></span>
 
-                        <img src="http://www.androidnova.org/wp-content/uploads/2012/09/setwidth700-recaptcha-example.gif" width="300px"/>
+                       <%-- <img src="http://www.androidnova.org/wp-content/uploads/2012/09/setwidth700-recaptcha-example.gif" width="300px"/>--%>
                         <!--HERE:       https://www.google.com/recaptcha-->
 
                         <div style="padding: 10px;">
-                            <a href="register" class="btn btn-xing btn-lg ladda-button pull-right" data-style="expand-left" data-size="xs">
-                              <input type="submit" name="Register" />       <%-- <span class="ladda-label">Register</span>--%>
+                            <%--KILL HARDCODE LATER--%>
+                            <a onclick="document.forms[1].submit();" class="btn btn-xing btn-lg ladda-button pull-right" data-style="expand-left" data-size="xs">
+                                <span class="ladda-label">Register</span>
                             </a>
 
                             <div class="clearfix"></div>

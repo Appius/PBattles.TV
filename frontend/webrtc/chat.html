@@ -9,7 +9,7 @@
         <title>Penis Battles TV</title>
         <script src="js/adapter.js"></script>
         <script src="js/jquery.js"></script>
-        <script src='/socket.io/socket.io.js'></script>
+        <script src='js/socket.io/socket.io.js'></script>
     </head>
 
     <body> 
@@ -22,7 +22,7 @@
         <input type="button" name="send" value="!send"/>
         <script>
 
-            var socket = io.connect();
+            var socket =  io.connect('http://localhost:9092');
             var room = prompt("Enter room name:");
             socket.emit('join', room);
 
@@ -35,14 +35,6 @@
                 var message = $('#text-field').val();
                 $('#text-field').val('');
                 socket.emit('message', message);
-            });
-
-            $('#text-field').keyup(function(e){
-                if(e.keyCode == 13){
-                    var message = $('#text-field').val();
-                    $('#text-field').val('');
-                    socket.emit('message', message);
-                }
             });
         </script>
 
