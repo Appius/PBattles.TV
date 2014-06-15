@@ -1,0 +1,9 @@
+start /b mongod --port 27019 --configsvr --dbpath "C:\Program Files\MongoDB 2.6 Standard\data\configdb" --logpath "C:\Program Files\MongoDB 2.6 Standard\logs\mongod_configsrv.log" --smallfiles
+
+start /b mongos --port 27017 --configdb localhost:27019 --logpath "C:\Program Files\MongoDB 2.6 Standard\logs\mongos.log"
+
+start /b mongod --port 27020 --dbpath "C:\Program Files\MongoDB 2.6 Standard\data\rs0-0" --replSet rs0 --logpath "C:\Program Files\MongoDB 2.6 Standard\logs\rs0-0.log" --bind_ip 127.0.0.1 --smallfiles
+
+start /b mongod --port 27021 --dbpath "C:\Program Files\MongoDB 2.6 Standard\data\rs0-1" --replSet rs0 --logpath "C:\Program Files\MongoDB 2.6 Standard\logs\rs0-1.log" --bind_ip 127.0.0.1 --smallfiles
+
+start /b mongod --port 27022 --dbpath "C:\Program Files\MongoDB 2.6 Standard\data\rs0-2" --replSet rs0 --logpath "C:\Program Files\MongoDB 2.6 Standard\logs\rs0-2.log" --bind_ip 127.0.0.1 --smallfiles
