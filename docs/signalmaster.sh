@@ -6,14 +6,27 @@ prog=signalmaster.sh
 # code of exit
 RETVAL=0
 stop() {
-	echo "Start to stopping signalmaster..."
+	echo "---Start to stopping signalmaster..."
+	node=`ps aux | grep -v grep | grep "node"`
+	if [ -n "${node}" ]
+	then
 	sudo forever stop ${path}
-	echo "All done."
+	else
+	echo "Signalmaster process is not found."
+	fi	
+	echo "---All done."
 	RETVAL=$?
+}
 start() {
-	echo "Starting signalmaster..."
+	echo "---Starting signalmaster..."
+	node=`ps aux | grep -v grep | grep "node"`
+	if [ -n "${node}" ]
+	then
+	echo "Signalmaster is already running."
+	else
 	sudo forever start ${path}
-	echo "All done."
+	fi
+	echo "---All done."
 	RETVAL=$?
 }
 case $1 in
@@ -26,7 +39,7 @@ case $1 in
     restart )
 	stop
 	start
-	echo "Restarting is done."
+	echo "---Restarting is done."
 	;;
     *)
 	echo $"Usage: sh $prog {start|stop|restart}"
