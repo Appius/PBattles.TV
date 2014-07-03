@@ -113,10 +113,10 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <url>http://localhost:8080/manager/text</url>
+                    <url>http://127.0.0.1:8080/manager/text</url>
                     <server>TomcatServer</server>
-                    <path>/Pbattles</path>
-                    <username>tomcat</username>
+                    <path>/</path>
+                    <username>admin</username>
                     <password>password</password>
                 </configuration>
             </plugin>

@@ -13,6 +13,7 @@ PenisBattles.TV
   * HTTP (TeamCity): **[pbattletv.cloudapp.net:8111](http://pbattletv.cloudapp.net:8111)** (in :8111, out :8111)
   * SSH: **pbattletv.cloudapp.net : 22** (in :22, out :22)
   * Remote Desktop: **100.91.104.138 : 56451** (in :3389, out :56451)
+  * SignalMaster: **http://pbattletv.cloudapp.net:8888** (in :8888, out :8888)
 
 For remote desktop please use **PBattleTV.rdp** file.<br />
 For SSH strongly **recommend** use SSH key.<br />

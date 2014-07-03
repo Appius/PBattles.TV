@@ -10,9 +10,12 @@
 *.jar
 *.war
 *.ear
-backend/.idea
+frontend
+backend/target
+backend/.idea/*
 backend/PCoursework.iml
 backend/target/classes/spring-config.xml
 
 # Frontend #
 frontend/.idea
+frontend
