@@ -39,6 +39,8 @@
 
     <body data-target=".navbar-custom">
 
+
+        <!--Allow access to cam and mic modal-->
         <div id="setmodal" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true" aria-labelledby="setLabel">
             <div class="modal-dialog modal-dialog-center">
                 <div class="modal-content">
@@ -48,6 +50,76 @@
                 </div>
             </div>
         </div>
+        <!--END Allow access to cam and mic modal-->
+
+        <!--Login modal-->
+        <div id="loginmodal" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true" aria-labelledby="setLabel">
+            <div class="modal-dialog modal-dialog-center modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1>Welcome to KittyBattles.com</h1>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>Online video chat with a group of strangers.</p>
+                                <p>Just try it!</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>No archivments</li>
+                                    <li>No friends</li>
+                                    <li>Fast access</li>
+                                    <li>Random nickname</li>
+                                </ul>
+                                <p>If you want to try KB, this is your best choice</p>
+                                <a href="chat.html" class="btn btn-default btn-lg" id="enter_anon">Enter anonymously</a>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>Free</li>
+                                    <li>Full access</li>
+                                </ul>
+                                <ul class="list-inline banner-social-buttons">
+                                    <li>
+                                        <button class="btn btn-twitter btn-sm" id="twitterlogin"><i class="fa fa-twitter"></i> Twitter</button>
+                                    </li>
+                                    <li>
+                                        <button class="btn btn-facebook btn-sm" id="fbLogin" onclick=""><i class="fa fa-facebook"></i> Facebook</button>
+                                    </li>
+                                    <li>
+                                        <button class="btn btn-google-plus btn-sm" id="googlelogin"><i class="fa fa-google-plus"></i> Google +</button>
+                                    </li>
+                                    <li>
+                                        <button class="btn btn-vk btn-sm"><i class="fa fa-vk"></i> VK</button>
+                                    </li>
+                                </ul>
+
+                                <form action="/" class="form-horizontal" method="post">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <input class="form-control" data-val="true" data-val-required="The login field is required." id="username" name="username" placeholder="Login" value="" type="text">
+                                    </div>
+                                    <span class="help-block"><span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span></span>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                        <input class="form-control" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" placeholder="Password" type="password">
+                                    </div>
+                                    <span class="help-block"><span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span></span>
+                                        <a href="chat.html" class="btn btn-default btn-lg" id="enter_login">Login</a>
+                                        <!--<a href="#" id="form-login-submit" class="btn btn-renren btn-sm pull-right ladda-button" data-style="expand-left" data-size="xs">
+                                            <span class="ladda-label">Login</span>
+                                        </a>-->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--END Login modal-->
 
         <!-- HEADER BLOCK -->
         <div class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -197,21 +269,41 @@
         <script>
             // grab the room from the URL
             var room = 'delete';
+            var webrtc;
 
-            $('#setmodal').modal('show');
+            $('#loginmodal').modal('show');
 
-            // create our webrtc connection
-            var webrtc = new SimpleWebRTC({
-                // the id/element dom element that will hold "our" video
-                localVideoEl: 'localVideo',
-                // the id/element dom element that will hold remote videos
-                remoteVideosEl: 'remoteVideos',
-                // immediately ask for camera access
-                autoRequestMedia: true,
-                debug: false,
-                detectSpeakingEvents: true,
-                autoAdjustMic: false
+            $('#enter_anon').click(function(){
+                $('#loginmodal').modal('hide');
+                //other staff!!!
+                $('#setmodal').modal('show');
+                init();
+
+                return false;
             });
+
+            $('#enter_login').click(function(){
+                $('#loginmodal').modal('hide');
+                //other staff!!!
+                $('#setmodal').modal('show');
+                init();
+
+                return false;
+            });
+
+            function init(){
+                webrtc = new SimpleWebRTC({
+                    // the id/element dom element that will hold "our" video
+                    localVideoEl: 'localVideo',
+                    // the id/element dom element that will hold remote videos
+                    remoteVideosEl: 'remoteVideos',
+                    // immediately ask for camera access
+                    autoRequestMedia: true,
+                    debug: false,
+                    detectSpeakingEvents: true,
+                    autoAdjustMic: false
+                });
+            }
 
             webrtc.on('readyToCall', function () {
                 if (room) webrtc.joinRoom(room);

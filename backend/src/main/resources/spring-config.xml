@@ -26,7 +26,7 @@
           init-method="init" destroy-method="close">
             <property name="host" value="${socketio.host}" />
             <property name="port" value="${socketio.port}" />
-            </bean>
+    </bean>
 
     <bean id="roomContainer" class="com.pbattles.roomlogic.QueueBasedContainer" init-method="initSchedule">
         <property name="usersInRoom" value="5"/>
