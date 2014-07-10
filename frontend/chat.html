@@ -269,7 +269,14 @@
         <script>
             // grab the room from the URL
             var room = 'delete';
-            var webrtc;
+            var webrtc = new SimpleWebRTC({
+                    localVideoEl: 'localVideo',
+                    remoteVideosEl: 'remoteVideos',
+                    autoRequestMedia: false,
+                    debug: false,
+                    detectSpeakingEvents: true,
+                    autoAdjustMic: false
+            });
 
             $('#loginmodal').modal('show');
 
@@ -277,7 +284,8 @@
                 $('#loginmodal').modal('hide');
                 //other staff!!!
                 $('#setmodal').modal('show');
-                init();
+
+                webrtc.startLocalVideo();
 
                 return false;
             });
@@ -286,24 +294,11 @@
                 $('#loginmodal').modal('hide');
                 //other staff!!!
                 $('#setmodal').modal('show');
-                init();
+
+                webrtc.startLocalVideo();
 
                 return false;
             });
-
-            function init(){
-                webrtc = new SimpleWebRTC({
-                    // the id/element dom element that will hold "our" video
-                    localVideoEl: 'localVideo',
-                    // the id/element dom element that will hold remote videos
-                    remoteVideosEl: 'remoteVideos',
-                    // immediately ask for camera access
-                    autoRequestMedia: true,
-                    debug: false,
-                    detectSpeakingEvents: true,
-                    autoAdjustMic: false
-                });
-            }
 
             webrtc.on('readyToCall', function () {
                 if (room) webrtc.joinRoom(room);
